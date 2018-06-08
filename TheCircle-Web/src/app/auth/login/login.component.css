@@ -1,7 +1,8 @@
 .loginGroup {
-  border: 1px solid lightgray;
+  border: 1px solid #4C4C4A;
   padding-top: 15px;
   padding-bottom: 15px;
+  background-color: #4C4C4A;
 }
 
 .btn {
@@ -17,4 +18,9 @@
 
 input {
   border-radius: 0px;
+  border-color: #4C4C4A;
+}
+
+label {
+  color: white;
 }
