@@ -9,12 +9,18 @@ import { AppRoutingModule } from './app-routing-module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/header/header.component';
+import { StreamComponent } from './stream/stream.component';
+import { VideoComponent } from './stream/video/video.component';
+import { ChatComponent } from './stream/chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    StreamComponent,
+    VideoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
