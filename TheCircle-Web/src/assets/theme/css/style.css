@@ -437,5 +437,27 @@ nav .mbr-section-btn {
   float: left; /*To get them next to each other if all else fails*/
   padding-bottom: 100%;
   margin-bottom: -100%;
-  background: rgba(65, 72, 69, 0.73);
+  opacity: inherit;
+  background: rgba(171, 178, 175, 0.38);
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+  .two {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .two {
+    padding-bottom: 100%; !important;
+  }
+
+}
+
+@media (max-width: 992px) {
+  .two {
+    width: 100%;
+  }
+  .one {
+    width: 100%;
+  }
 }

@@ -1756,8 +1756,8 @@ body {
 .cid-qUjuWVoItm {
   padding-top: 105px;
   padding-bottom: 45px;
-  background: #149dcc;
-  background: linear-gradient(0deg, #149dcc, #ffffff);
+  background-image: url("../../polygon-background10.jpg");
+  /*background: linear-gradient(0deg, #149dcc, #ffffff);*/
 }
 .cid-qUjuWVoItm .video-block {
   margin: auto;
