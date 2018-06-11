@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  logoLocation = '../../assets/img/TheCircleLogo2.png';
+  backgroundImage = '../../assets/img/bg1.png';
+  logoLocation = '../../assets/img/logo.png';
 
   constructor() { }
 

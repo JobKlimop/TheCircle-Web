@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 @Injectable()
 export class AuthService {
   //TODO ADD URL TO API
-  private url = 1;
+  private url = '../../environment/environment.ts';
 
 
   constructor(private http: HttpClient) {
