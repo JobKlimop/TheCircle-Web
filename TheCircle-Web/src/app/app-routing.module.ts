@@ -3,7 +3,8 @@ import {AuthComponent} from './auth/auth.component';
 import {NgModule} from '@angular/core';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'main', pathMatch: 'full'},
+
   {path: 'auth', component: AuthComponent}
 ];
 

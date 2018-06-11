@@ -19,7 +19,7 @@ export class AuthService {
       {headers: this.headers})
       .toPromise()
       .then((response) => {
-        console.log(response.crt.private);
+        // console.log(response.crt.private);
         this.setSession(response, username);
         this.loggedIn = true;
       })
