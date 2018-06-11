@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
-  //TODO ADD URL TO API
-  private url = '../../environment/environment.ts';
-
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
+  private url = environment.accountApiUrl;
+  public loggedIn = false;
 
   constructor(private http: HttpClient) {
 
@@ -14,10 +15,13 @@ export class AuthService {
   public login(username: string, password: string) {
     return this.http.post(
       this.url + '/login',
-      {'username' : username, 'password': password})
+      {'username' : username, 'password': password},
+      {headers: this.headers})
       .toPromise()
       .then((response) => {
-
+        console.log(response.crt.private);
+        this.setSession(response, username);
+        this.loggedIn = true;
       })
       .catch((error) => {
         console.log(error);
@@ -26,5 +30,9 @@ export class AuthService {
 
   logout() {
 
+  }
+
+  setSession(token, username) {
+    localStorage.setItem('token', JSON.stringify(token.token));
   }
 }
