@@ -1,5 +1,8 @@
-.authBody {
+
+.container-fluid {
   background: url('../../assets/img/bg1.png') no-repeat center center fixed;
+  height: 100%;
+  width: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -17,7 +20,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  width: 30%;
+  width: 20%;
   height: auto;
 
   -webkit-animation: fadein 5s; /* Safari, Chrome and Opera > 12.1 */
