@@ -5,40 +5,42 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
+
 export class ChatComponent implements OnInit {
-  //messages = ["Hi how are you","I am fine"];
+  user = {
+    "name": "Youri van Boeckholtz"
+  }
+
   messages = [{
-    "user": "Youri",
-    "text": "Hello all.",
-    "timestamp": "12:15"
+    "user": this.user.name,
+    "text": "Hello all."
   },
   
   {
-    "user": "Youri",
-    "text": "This stream is un-fricking believable.",
-    "timestamp": "12:16"
-  },
+    "user": this.user.name,
+    "text": "Welcome to my stream."
+  }]
 
-  {
-    "user": "Youri",
-    "text": "Yo... is er iemand? Haha. :'P",
-    "timestamp": "02:21"
-  }
-]
+  // Track the current reply message.
   replyMessage = "";
+
+  
+  
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  
   reply(){
+    // Add new message (reply).
     this.messages.push({
-      "user": "You",
-      "text":this.replyMessage,
-      "timestamp": "TIME!"
+      "user": this.user.name,
+      "text": this.replyMessage
     })
+
+    // Empty out message field again.
     this.replyMessage = "";
   }
-
-  
 }
