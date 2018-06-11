@@ -19,8 +19,8 @@ export class AuthService {
       {headers: this.headers})
       .toPromise()
       .then((response) => {
-        // console.log(response.crt.private);
-        this.setSession(response, username);
+        console.log(response.token);
+        this.setSession(response.token, username);
         this.loggedIn = true;
       })
       .catch((error) => {
@@ -34,5 +34,15 @@ export class AuthService {
 
   setSession(token, username) {
     localStorage.setItem('token', JSON.stringify(token.token));
+  }
+
+  isAuthenticated() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      return this.loggedIn;
+    } else {
+      return false;
+    }
   }
 }
