@@ -16,6 +16,8 @@ export class MainComponent implements OnInit {
   testClick() {
     const msg = 'testmessageGiedeIsFaggot';
     const signedMsg = this.encryptionService.sign(msg);
-    console.log(signedMsg);
+    
+    let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
+    console.log(valid)
   }
 }
