@@ -31,7 +31,9 @@ export class AuthService {
   }
 
   logout() {
-
+    delete this.key;
+    delete this.crt;
+    delete this.token;
   }
 
   setSession(token, certificate, privateKey) {
