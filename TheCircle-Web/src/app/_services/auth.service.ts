@@ -7,9 +7,9 @@ export class AuthService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private url = environment.accountApiUrl;
   public loggedIn = false;
-  public key: string
-  public crt: string
-  public token: string
+  public key: string;
+  public crt: string;
+  public token: string;
 
   constructor(private http: HttpClient) {
 
@@ -35,20 +35,13 @@ export class AuthService {
   }
 
   setSession(token, certificate, privateKey) {
-    localStorage.setItem('token', JSON.stringify(token.token));
-    localStorage.setItem('certificate', JSON.stringify(certificate));
-    localStorage.setItem('privateKey', JSON.stringify(privateKey));
     this.key = privateKey;
-    this.token = token
-    this.crt = certificate
-
-    const key = localStorage.getItem('privateKey');
+    this.token = token;
+    this.crt = certificate;
   }
 
   isAuthenticated() {
-    const token = localStorage.getItem('token');
-
-    if (token) {
+    if (this.token) {
       return this.loggedIn;
     } else {
       return false;
