@@ -18,7 +18,7 @@ export class AuthService {
       {'username' : username, 'password': password},
       {headers: this.headers})
       .toPromise()
-      .then((response) => {
+      .then((response: any) => {
         this.setSession(response.token, response.cert, response.crt.private);
         this.loggedIn = true;
       })
