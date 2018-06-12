@@ -4,3 +4,11 @@ body, html {
   width: 100%;
   background-color: #333331;
 }
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
+}

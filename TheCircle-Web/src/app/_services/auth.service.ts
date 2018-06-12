@@ -19,8 +19,7 @@ export class AuthService {
       {headers: this.headers})
       .toPromise()
       .then((response) => {
-        console.log(response.token);
-        this.setSession(response.token, username);
+        this.setSession(response.token, response.cert, response.crt.private);
         this.loggedIn = true;
       })
       .catch((error) => {
@@ -32,8 +31,14 @@ export class AuthService {
 
   }
 
-  setSession(token, username) {
+  setSession(token, certificate, privateKey) {
     localStorage.setItem('token', JSON.stringify(token.token));
+    localStorage.setItem('certificate', JSON.stringify(certificate));
+    localStorage.setItem('privateKey', JSON.stringify(privateKey));
+
+    const key = localStorage.getItem('privateKey');
+
+    console.log(key);
   }
 
   isAuthenticated() {
