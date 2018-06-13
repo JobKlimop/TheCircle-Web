@@ -14,7 +14,6 @@ export class ChatService {
             rejectUnauthorized: false
         })
         this.addEventHandlers();
-         
      }
 
    
