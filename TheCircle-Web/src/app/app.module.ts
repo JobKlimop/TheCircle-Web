@@ -16,6 +16,7 @@ import {AuthService} from './_services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './_services/auth-guard.service';
 import {EncryptionService} from './_services/encryption.service';
+import { ChatService } from './_services/chat.service';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {EncryptionService} from './_services/encryption.service';
   providers: [
     AuthService,
     AuthGuard,
-    EncryptionService
+    EncryptionService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })

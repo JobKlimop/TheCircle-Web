@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EncryptionService} from '../_services/encryption.service';
+import { ChatService } from '../_services/chat.service';
 
 @Component({
   selector: 'app-main',
@@ -8,16 +9,13 @@ import {EncryptionService} from '../_services/encryption.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private encryptionService: EncryptionService) { }
+  constructor(private encryptionService: EncryptionService, private chatService: ChatService) { }
 
   ngOnInit() {
   }
 
-  testClick() {
+  test() {
     const msg = 'testmessageGiedeIsFaggot';
-    const signedMsg = this.encryptionService.sign(msg);
-    
-    let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
-    console.log(valid)
+    this.chatService.sendMessage('room-1', msg)
   }
 }
