@@ -17,6 +17,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './_services/auth-guard.service';
 import {EncryptionService} from './_services/encryption.service';
 import { ChatService } from './_services/chat.service';
+import { StreamComponent } from './stream/stream.component';
+import { VideoComponent } from './stream/video/video.component';
+import { ChatComponent } from './stream/chat/chat.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { ChatService } from './_services/chat.service';
     MainComponent,
     HeaderComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    StreamComponent,
+    VideoComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

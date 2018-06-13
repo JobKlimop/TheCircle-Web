@@ -3,6 +3,7 @@ import {AuthComponent} from './auth/auth.component';
 import {NgModule} from '@angular/core';
 import {AuthGuard} from './_services/auth-guard.service';
 import {MainComponent} from './main/main.component';
+import { StreamComponent } from './stream/stream.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
@@ -11,7 +12,8 @@ const appRoutes: Routes = [
       {path: 'main', component: MainComponent}
     ]},
 
-  {path: 'auth', component: AuthComponent}
+  {path: 'auth', component: AuthComponent},
+  { path: 'stream', component: StreamComponent }
 ];
 
 @NgModule({
