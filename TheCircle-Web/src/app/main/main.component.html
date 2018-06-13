@@ -65,7 +65,10 @@
 
 <section class="features2 cid-qUjusC35Uz" id="features2-5">
 
-  <div class="container">
+  <div
+    *ngIf="streamers?.length > 0; else noStreamer"
+    class="container">
+
     <div
       *ngFor="let streamer of streamers"
       class="media-container-row">
@@ -80,7 +83,7 @@
               {{ streamer.username }}
             </h4>
             <p class="mbr-text mbr-fonts-style display-7">
-              {{ streamer.avatar }}
+              {{ streamer.avatar }} || Viewers: {{ viewers-1 }}
             </p>
           </div>
         </div>

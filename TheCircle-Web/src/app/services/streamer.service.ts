@@ -11,4 +11,8 @@ export class StreamerService {
   getStreamers() {
     return this.http.get("http://localhost:8000/api/streams");
   }
+
+  getViewers(streamname: String) {
+    return this.http.get("http://localhost:8000/api/streams/live/" + streamname);
+  }
 }
