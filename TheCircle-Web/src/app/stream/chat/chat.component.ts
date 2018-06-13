@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../../_services/chat.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -25,9 +27,13 @@ export class ChatComponent implements OnInit {
   replyMessage = "";
 
   
-  
 
-  constructor() { }
+
+  constructor(
+    private ChatService: ChatService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
   }

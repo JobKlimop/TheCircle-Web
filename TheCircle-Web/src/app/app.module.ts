@@ -33,7 +33,8 @@ const config: SocketIoConfig = { url: 'ws://the-circle-chat.herokuapp.com/', opt
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent]
