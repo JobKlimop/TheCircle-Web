@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EncryptionService} from '../_services/encryption.service';
 import { ChatService } from '../_services/chat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,13 +10,12 @@ import { ChatService } from '../_services/chat.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private encryptionService: EncryptionService, private chatService: ChatService) { }
+  constructor(private encryptionService: EncryptionService, private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
   }
 
   test() {
-    const msg = 'testmessageGiedeIs';
-    //this.chatService.sendMessage('room-1', msg)
+    this.router.navigateByUrl('/stream')
   }
 }

@@ -25,7 +25,6 @@ export class EncryptionService {
     sig.init(this.key);
     sig.updateString(hashValueHex);
     const signature = sig.sign();
-    console.log(signature);
     const messageBody = {content: message, signature: signature, certificate: this.crt, timestamp: timestamp, room: ''};
 
     return messageBody;
@@ -41,8 +40,6 @@ export class EncryptionService {
     sig.init(message.certificate);
     sig.updateString(hashValueHex);
     const isvalid = sig.verify(message.signature);
-
-    console.log(isvalid);
     return isvalid;
   }
 }

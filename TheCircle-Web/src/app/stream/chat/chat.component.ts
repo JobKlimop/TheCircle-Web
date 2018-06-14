@@ -11,31 +11,32 @@ import { AuthService } from '../../_services/auth.service';
 
 export class ChatComponent implements OnInit {
   // Track the current reply message.
-  replyMessage = "";
+  message = "";
   messages = this.chatService.messages;
   
 
   constructor(private encryptionService: EncryptionService, private chatService: ChatService, private authService: AuthService) { 
     // This setUsername needs to be removed when authorization and routing is implemented.
-    this.chatService.setUsername("Testing account");
-    this.authService.crt = ``;
-    this.authService.key = ``;
     this.messages = chatService.messages;
   }
 
   ngOnInit() {
+    this.messages.push({content: 'test message'})
+    this.chatService.messagesChanged
+    .subscribe((newMessages) => {
+      this.messages = newMessages
+    })
   }
 
   
-  reply(){
+  send(){
     // Commented because sign doesn't work properly without the auth service.
-    /*let message = this.encryptionService.sign(this.replyMessage)
+    this.chatService.joinRoom('room-1')
+    let message = this.encryptionService.sign(this.message)
     message.room = 'room-1'
-    this.chatService.sendMessage(message);*/
-
-    this.chatService.sendMessage(this.replyMessage);
+    this.chatService.sendMessage(message);
 
     // Empty out message field again.
-    this.replyMessage = "";
+    this.message = "";
   }
 }

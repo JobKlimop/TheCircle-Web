@@ -2,12 +2,12 @@
     <div id="messages">
     
     <div *ngFor="let message of messages">
-      <b>{{message}}</b>
+      <b>{{message.user}}: {{message.content}}</b>
     </div>
     
     </div>
       <div class="input-container">
-      <input type="text" class="inputtext" [(ngModel)]="replyMessage" >
-      <button type="submit" class="replyBtn" (click)="reply()" [disabled]="replyMessage.length==0">{{ replyMessage.length==0 ? '...' : 'Send' }}</button>
+      <input type="text" class="inputtext" [(ngModel)]="message" >
+      <button type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0">{{ message.length==0 ? '...' : 'Send' }}</button>
       </div>
     </div>

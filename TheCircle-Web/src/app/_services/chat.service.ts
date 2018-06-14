@@ -1,18 +1,21 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Output, EventEmitter } from "@angular/core";
 import { AuthService } from './auth.service';
 
 import { Chatmessage } from '../_models/chatmessage';
+import { EncryptionService } from "./encryption.service";
 
 const host = "ws://the-circle-chat.herokuapp.com/"
 
 let socket = require("socket.io-client")
 
+
 @Injectable()
 
 export class ChatService {
+    @Output() messagesChanged: EventEmitter<Array<string>> = new EventEmitter();
     public authservice: AuthService;
     public messages = new Array();
-     constructor(AuthService: AuthService){
+     constructor(AuthService: AuthService, private encryptionService: EncryptionService){
          
         console.log('chat service')
         socket = socket.connect(host, {
@@ -30,8 +33,6 @@ export class ChatService {
         socket.on('connect', () => {
             console.log("Connected");
             this.setUsername(this.authservice.username);
-            this.joinRoom("room-1");
-            this.getClientCount("room-1");
         })
     
             // Fires after a connection error.
@@ -91,9 +92,15 @@ export class ChatService {
         // Fires when receiving a message from the server.
         // contains the room the message is meant for, the message sender & the message itself
         socket.on("message", (message) => {
+            // When receiving a message the messages is verified, if the message is ok it's addes to the list of messages. 
+            // Otherwise nothing is done with the message.
             console.log(message.timestamp + " " + message.room + " " + message.user + ": " + message.content);
-            this.messages.push(message);
-            console.log(this.messages);
+            if(this.encryptionService.verify(message)){
+                this.addMessage(message)
+                console.log(message)
+            }else{
+                
+            }
         });
     
         // Fires when receiving connection info.
@@ -162,6 +169,13 @@ export class ChatService {
     // Emit a "client_count" event to request the amount of connected clients of a given room you are in.
      getClientCount(room) {
         socket.emit("client_count", room);
+    }
+
+    addMessage(recMessage){
+        // When a message is verified it gets added to the array of messages and the messagesChanged event is emitted, this wil tell all
+        // subcribed components the a message has been received and also sends the new array.
+        this.messages.push(recMessage)
+        this.messagesChanged.emit(this.messages)
     }
 }
 
