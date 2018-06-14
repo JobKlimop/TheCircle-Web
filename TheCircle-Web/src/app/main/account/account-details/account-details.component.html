@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="container">
+        <img src="https://i1.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100" alt="">
+        <div class="overlay" style="color: white;">Edit</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-left: 20px;">
+      <h1 class="dialogText">{{username}}</h1>
+      <br>
+      <p class="dialogText"><b>Slogan</b>: {{slogan}}<a href="#"><span class="glyphicon glyphicon-edit"></span></a></p>
+      <p class="dialogText"><b>E-mail</b>: {{email}} <a href="#"> <span class="glyphicon glyphicon-edit"></span></a></p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button type="submit" class="btn btn-primary saveBtn" (click)="saveChanges()">Save</button>
+        <button class="btn closeBtn" (click)="onNoClick()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
