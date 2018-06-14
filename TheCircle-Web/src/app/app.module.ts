@@ -14,6 +14,7 @@ import {EncryptionService} from './_services/encryption.service';
 import { HeaderComponent } from './main/header/header.component';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {AuthInterceptor} from './_interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([]),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
