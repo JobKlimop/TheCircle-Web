@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  test() {
+  goToStream() {
     this.router.navigateByUrl('/stream')
   }
 }
