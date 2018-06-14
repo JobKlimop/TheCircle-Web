@@ -15,6 +15,8 @@ import { HeaderComponent } from './main/header/header.component';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
 import {RouterModule} from '@angular/router';
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,10 @@ import {RouterModule} from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }),
     RouterModule.forRoot([]),
     FormsModule,
     ReactiveFormsModule,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {ToastrService} from "ngx-toastr";
 
 @Injectable()
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
   public crt: string;
   public token: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
@@ -27,6 +28,7 @@ export class AuthService {
       })
       .catch((error) => {
         console.log(error);
+        this.toastr.error('The username or password provided is incorrect.', 'Invalid credentials');
       });
   }
 
