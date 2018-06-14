@@ -20,6 +20,7 @@ import { ChatService } from './_services/chat.service';
 import { StreamComponent } from './stream/stream.component';
 import { VideoComponent } from './stream/video/video.component';
 import { ChatComponent } from './stream/chat/chat.component';
+import { MyinfoComponent } from './myinfo/myinfo.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ChatComponent } from './stream/chat/chat.component';
     LoginComponent,
     StreamComponent,
     VideoComponent,
-    ChatComponent
+    ChatComponent,
+    MyinfoComponent
   ],
   imports: [
     BrowserModule,
