@@ -13,9 +13,12 @@ import { HeaderComponent } from './main/header/header.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AuthService} from './_services/auth.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './_services/auth-guard.service';
 import {EncryptionService} from './_services/encryption.service';
+import { HeaderComponent } from './main/header/header.component';
+import { DropdownDirective } from './_shared/dropdown.directive';
+import {AuthInterceptor} from './_interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import {EncryptionService} from './_services/encryption.service';
     MainComponent,
     HeaderComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,12 @@ import {EncryptionService} from './_services/encryption.service';
   providers: [
     AuthService,
     AuthGuard,
-    EncryptionService
+    EncryptionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
