@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EncryptionService} from '../_services/encryption.service';
+import { EncryptionService} from '../_services/encryption.service';
 import { ChatService } from '../_services/chat.service';
 
 @Component({
