@@ -14,9 +14,11 @@ export class EncryptionService {
   }
 
   public sign(message) {
+    // Timestamp.
+    var timestamp = Math.round((new Date()).getTime() / 1000);
 
     const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
-    md.updateString(message);
+    md.updateString(message + timestamp);
     const hashValueHex = md.digest();
 
     const sig = new jsrsasign.KJUR.crypto.Signature({'alg': 'SHA256withRSA'});
@@ -24,21 +26,21 @@ export class EncryptionService {
     sig.updateString(hashValueHex);
     const signature = sig.sign();
     console.log(signature);
-    const messageBody = {msg: message, signature: signature, crt: this.crt};
+    const messageBody = {content: message, signature: signature, certificate: this.crt, timestamp: timestamp, room: ''};
 
     return messageBody;
   }
 
-  public verify(message, crt, signature) {
+  public verify(message) {
 
     const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
-    md.updateString(message);
+    md.updateString(message.content + message.timestamp);
     const hashValueHex = md.digest();
 
     const sig = new jsrsasign.KJUR.crypto.Signature({'alg': 'SHA256withRSA'});
-    sig.init(crt);
+    sig.init(message.certificate);
     sig.updateString(hashValueHex);
-    const isvalid = sig.verify(signature);
+    const isvalid = sig.verify(message.signature);
 
     console.log(isvalid);
     return isvalid;

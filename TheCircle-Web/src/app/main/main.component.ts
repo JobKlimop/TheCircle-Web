@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   }
 
   test() {
-    const msg = 'testmessageGiedeIsFaggot';
-    this.chatService.sendMessage('room-1', msg)
+    const msg = 'testmessageGiedeIs';
+    //this.chatService.sendMessage('room-1', msg)
   }
 }

@@ -132,8 +132,8 @@ export class ChatService {
     // Send a message to a room by emitting the "message" event and including the name of the room and your message.
     // You can only send messages after providing a username by emitting the "set_username" event & by having joined the
     // room you are sending the message to.
-    sendMessage(room, message) {
-        socket.emit("message", {room: room, content: message});
+    sendMessage(message) {
+        socket.emit("message", message);
     }
     
     // Before you can send messages, you need to provide a username.

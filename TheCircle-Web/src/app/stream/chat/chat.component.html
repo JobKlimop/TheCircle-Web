@@ -6,8 +6,8 @@
     </div>
     
     </div>
-    <div class="input-container">
-    <input type="text" class="inputtext" [(ngModel)]="replyMessage" >
-    <button type="submit" class="replyBtn" (click)="reply()" [disabled]="replyMessage.length==0">{{ replyMessage.length==0 ? '...' : 'Send' }}</button>
-    </div>
+      <div class="input-container">
+      <input type="text" class="inputtext" [(ngModel)]="replyMessage" >
+      <button type="submit" class="replyBtn" (click)="reply()" [disabled]="replyMessage.length==0">{{ replyMessage.length==0 ? '...' : 'Send' }}</button>
+      </div>
     </div>
