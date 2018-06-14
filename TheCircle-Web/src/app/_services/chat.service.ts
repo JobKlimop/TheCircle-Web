@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { AuthService } from './auth.service';
 
 const host = "ws://the-circle-chat.herokuapp.com/"
 
@@ -7,13 +8,16 @@ let socket = require("socket.io-client")
 @Injectable()
 
 export class ChatService {
-     constructor(){
+    public authservice: AuthService;
+
+     constructor(AuthService: AuthService){
         console.log('chat service')
         socket = socket.connect(host, {
             transports: ['websocket'],
             rejectUnauthorized: false
         })
         this.addEventHandlers();
+        this.authservice = AuthService;
      }
 
    
@@ -22,7 +26,7 @@ export class ChatService {
 
         socket.on('connect', () => {
             console.log("Connected");
-            this.setUsername("Mika");
+            this.setUsername(this.authservice.username);
             this.joinRoom("room-1");
             this.getClientCount("room-1");
         })

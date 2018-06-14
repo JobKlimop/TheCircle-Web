@@ -10,9 +10,10 @@ export class AuthService {
   public key: string;
   public crt: string;
   public token: string;
+  public username: string;
 
   constructor(private http: HttpClient) {
-
+    this.username = "";
   }
 
   public login(username: string, password: string) {
@@ -24,6 +25,9 @@ export class AuthService {
       .then((response: any) => {
         this.setSession(response.token, response.crt.cert, response.crt.private);
         this.loggedIn = true;
+
+        // Set username for chat later.
+        this.username = username;
       })
       .catch((error) => {
         console.log(error);
