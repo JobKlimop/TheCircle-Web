@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { AuthService } from './auth.service';
 
+import { Chatmessage } from '../_models/chatmessage';
+
 const host = "ws://the-circle-chat.herokuapp.com/"
 
 let socket = require("socket.io-client")
@@ -9,8 +11,9 @@ let socket = require("socket.io-client")
 
 export class ChatService {
     public authservice: AuthService;
-
+    public messages = new Array();
      constructor(AuthService: AuthService){
+         
         console.log('chat service')
         socket = socket.connect(host, {
             transports: ['websocket'],
@@ -89,6 +92,8 @@ export class ChatService {
         // contains the room the message is meant for, the message sender & the message itself
         socket.on("message", (message) => {
             console.log(message.timestamp + " " + message.room + " " + message.user + ": " + message.content);
+            this.messages.push(message);
+            console.log(this.messages);
         });
     
         // Fires when receiving connection info.

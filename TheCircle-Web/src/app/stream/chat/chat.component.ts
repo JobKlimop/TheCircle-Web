@@ -11,16 +11,19 @@ import { ChatService } from '../../_services/chat.service';
 export class ChatComponent implements OnInit {
   // Track the current reply message.
   replyMessage = "";
+  
 
-  constructor(private encryptionService: EncryptionService, private chatService: ChatService) { }
+  constructor(private encryptionService: EncryptionService, private chatService: ChatService) { 
+    // This setUsername needs to be removed when authorization and routing is implemented.
+    this.chatService.setUsername("Testing account");
+  }
 
   ngOnInit() {
   }
 
   
   reply(){
-    // This setUsername needs to be removed when authorization and routing is implemented.
-    this.chatService.setUsername("Testing account");
+    
     this.chatService.sendMessage('room-1', this.replyMessage);
 
     // Empty out message field again.
