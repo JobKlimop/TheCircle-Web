@@ -7,9 +7,14 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent implements OnInit {
-  username = this.data.username;
-  slogan = this.data.slogan;
-  email = this.data.email;
+  userImage = '../../../assets/img/userImage.png';
+  // username = this.data.username;
+  // slogan = this.data.slogan;
+  // email = this.data.email;
+  username = 'Thomas';
+  slogan = 'Shrek is love, Shrek is life';
+  email = 'giedeisfgt@webcamboy.nl';
+  // editBtn = '../../../assets/img/editIcon.png';
 
 
   constructor(public dialogRef: MatDialogRef<AccountDetailsComponent>,

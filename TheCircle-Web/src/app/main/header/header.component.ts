@@ -3,6 +3,7 @@ import {AuthService} from '../../_services/auth.service';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {AccountDetailsComponent} from '../account/account-details/account-details.component';
 import {Router} from '@angular/router';
+import {User} from '../../_models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import {Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   logoLocation = '../../assets/img/logo.png';
+  user: User;
   username = 'test';
   email = 'test@test.com';
   slogan = 'testSloganGiedeIsFaggot';
@@ -26,9 +28,9 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.closeOnNavigation = true;
     dialogConfig.width = '500px';
-    dialogConfig.data = {username: this.username, email: this.email, slogan: this.slogan};
+    // dialogConfig.data = {username: this.username, email: this.email, slogan: this.slogan};
 
-    let dialogRef = this.dialog.open(AccountDetailsComponent, dialogConfig);
+    const dialogRef = this.dialog.open(AccountDetailsComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog closed');
