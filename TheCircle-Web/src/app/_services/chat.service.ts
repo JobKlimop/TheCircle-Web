@@ -184,11 +184,10 @@ export class ChatService {
         //socket.emit("client_count", "room-1");
     }
 
+    // Update viewers based on client_count in a room.
     changeViewers(newViewers){
-        // Check for changed amount of viewers.
         this.viewers = newViewers;
         this.viewersChanged.emit(this.viewers)
-        console.log(this.viewers);
-        
+        console.log(this.viewers);  
     }
 }

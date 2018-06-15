@@ -13,9 +13,9 @@ export class EncryptionService {
     this.crt = this.authService.crt;
   }
 
+  
   public sign(message) {
-    // Timestamp.
-    var timestamp = Math.round((new Date()).getTime() / 1000);
+    var timestamp = Math.round((new Date()).getTime() / 1000) ;
 
     const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
     md.updateString(message + timestamp);
@@ -31,6 +31,11 @@ export class EncryptionService {
   }
 
   public verify(message) {
+    // Check if the message isn't over 5 seconds old.
+    if (!(message.timestamp < ( Math.round((new Date()).getTime() / 1000) + 5)))
+    {
+      return false;
+    }
 
     const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
     md.updateString(message.content + message.timestamp);
