@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  accountApiUrl: 'http://localhost:3000/api/account'
+  accountApiUrl: 'https://the-circle-account.herokuapp.com/api/account'
 };
 
 /*

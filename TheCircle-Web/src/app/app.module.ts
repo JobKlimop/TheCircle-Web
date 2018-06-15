@@ -23,6 +23,9 @@ import { DropdownDirective } from './_shared/dropdown.directive';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
 import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { StreamsComponent } from './main/streams/streams.component';
+import { SinglestreamComponent } from './main/streams/singlestream/singlestream.component';
+import { FooterComponent } from './main/footer/footer.component';
 
 
 
@@ -36,7 +39,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     HeaderComponent,
     DropdownDirective,
     AccountDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    StreamsComponent,
+    SinglestreamComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

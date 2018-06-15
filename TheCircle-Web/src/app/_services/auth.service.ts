@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {User} from '../_models/user.model';
 
 @Injectable()
 export class AuthService {
@@ -10,6 +11,7 @@ export class AuthService {
   public key: string;
   public crt: string;
   public token: string;
+  public user: User;
 
   constructor(private http: HttpClient) {
 
@@ -22,7 +24,15 @@ export class AuthService {
       {headers: this.headers})
       .toPromise()
       .then((response: any) => {
-        this.setSession(response.token, response.crt.cert, response.crt.private);
+        console.log(response.user.username);
+        this.setSession(
+          response.token,
+          response.crt.cert,
+          response.crt.private,
+          response.user.username,
+          response.user.slogan,
+          response.user.email
+        );
         this.loggedIn = true;
       })
       .catch((error) => {
@@ -36,10 +46,12 @@ export class AuthService {
     delete this.token;
   }
 
-  setSession(token, certificate, privateKey) {
+  setSession(token, certificate, privateKey, username, slogan, email) {
     this.key = privateKey;
     this.token = token;
     this.crt = certificate;
+
+    this.user = new User(username, slogan, email);
   }
 
   isAuthenticated() {

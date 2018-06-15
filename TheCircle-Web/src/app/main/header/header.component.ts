@@ -12,10 +12,6 @@ import {User} from '../../_models/user.model';
 })
 export class HeaderComponent implements OnInit {
   logoLocation = '../../assets/img/logo.png';
-  user: User;
-  username = 'test';
-  email = 'test@test.com';
-  slogan = 'testSloganGiedeIsFaggot';
 
   constructor(private authService: AuthService,
               private router: Router,
@@ -28,7 +24,6 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.closeOnNavigation = true;
     dialogConfig.width = '500px';
-    // dialogConfig.data = {username: this.username, email: this.email, slogan: this.slogan};
 
     const dialogRef = this.dialog.open(AccountDetailsComponent, dialogConfig);
 

@@ -1,5 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {User} from '../../../_models/user.model';
+import {AuthService} from '../../../_services/auth.service';
 
 @Component({
   selector: 'app-account-details',
@@ -8,19 +10,15 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 })
 export class AccountDetailsComponent implements OnInit {
   userImage = '../../../assets/img/userImage.png';
-  // username = this.data.username;
-  // slogan = this.data.slogan;
-  // email = this.data.email;
-  username = 'Thomas';
-  slogan = 'Shrek is love, Shrek is life';
-  email = 'giedeisfgt@webcamboy.nl';
-  // editBtn = '../../../assets/img/editIcon.png';
+  user: User;
 
 
-  constructor(public dialogRef: MatDialogRef<AccountDetailsComponent>,
+  constructor(private authService: AuthService,
+              public dialogRef: MatDialogRef<AccountDetailsComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    this.user = this.authService.user;
   }
 
   onNoClick(): void {
