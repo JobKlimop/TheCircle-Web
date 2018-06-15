@@ -1,19 +1,19 @@
 <!-- Try implementing this: https://bootsnipp.com/snippets/6XlB5 -->
 <div class="chatbox">
-    <div id="messages">
-    <div style="width:100%;"*ngFor="let message of messages">
-            <div class="msj-rta macro">
-                <div class="text text-r">
-                    <p>{{message.content}}</p>
-                    <p><small>{{message.user}}</small></p>
-                </div>                             
+  <div style="width:100%;"*ngFor="let message of messages">
+    <div class="msj-rta macro">
+      <div class="text text">
+          <p>{{message.content}}</p>
+          <p><small>{{message.user}}</small></p>
+      </div>                             
     </div>
-
+  </div>
+  </div>
   
-    </div>
     
-      <div class="input-container">
-          <input id="replybox" class="text text-r" style="background:whitesmoke !important" type="text" class="inputtext" [(ngModel)]="message" placeholder="Say something">
-          <button id="submit" type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0">{{ message.length==0 ? '...' : 'Send' }}</button>
+  <div class="msj-rta macro" style="margin:auto"> 
+  <div class="text text-r" style="background:whitesmoke !important">
+      <input id="mytext" style="background:whitesmoke !important" type="text" [(ngModel)]="message" placeholder="Say something">
+      <button id="submit" type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0" style="position: absolute; left: -9999px; width: 1px; height: 1px;">{{ message.length==0 ? '...' : 'Send' }}</button>
     </div>
-    </div>
+</div>

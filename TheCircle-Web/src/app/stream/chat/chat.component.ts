@@ -21,14 +21,27 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.messages.push({content: 'test message'})
+    /* Examples.*/
+    this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
+    this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
+    this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
+    this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
+    this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
+    this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
+    this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
+    this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
+    this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
+    this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
+    this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
+    this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
+
     this.chatService.messagesChanged
     .subscribe((newMessages) => {
       this.messages = newMessages
-    })
+    });
 
     // Bootleg way to submit with enter button, whoops.
-    var input = document.getElementById("replybox");
+    var input = document.getElementById("mytext");
 
     // Execute a function when the user releases a key on the keyboard.
     input.addEventListener("keyup", function(event) {
