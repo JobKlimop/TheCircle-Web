@@ -23,6 +23,7 @@
                 </span>
       </div>
     </div>
+    <!-- Header -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
         <li class="nav-item">
@@ -43,7 +44,7 @@
 </section>
 
 <!-- Streamer details. -->
-<div class="row" style="background-color: #fe0000; margin-top: 77px; padding-top: 5px;">
+<div class="row" id="background-image" style="margin-top: 77px; padding-top: 5px;">
   <div class="container">
     <div class="col-md-2">
       <img
@@ -51,10 +52,10 @@
       class="img-thumbnail">
     </div>
 
-    
+
     <div class="col-md-10">
-      <h1>{{username}}</h1>
-      <p><b>"{{quote}}"</b> People watching: {{viewers}}</p>
+      <h1 style="color: white;">{{username}}</h1>
+      <p style="color: white;"><b>"{{quote}}"</b> People watching: <b style="color:#FE0000">{{viewers}} </b> </p>
     </div>
   </div>
 </div>
@@ -68,5 +69,5 @@
     <div class="col-md-4">
      <app-chat></app-chat>
     </div>
-  </div>  
+  </div>
 </div>
