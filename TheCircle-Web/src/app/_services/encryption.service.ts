@@ -5,11 +5,11 @@ const jsrsasign = require('jsrsasign');
 
 @Injectable()
 export class EncryptionService {
-  key: string;
+  privateKey: string;
   crt: string;
   
   constructor(private authService: AuthService) {
-    this.key = this.authService.key;
+    this.privateKey = this.authService.privateKey;
     this.crt = this.authService.crt;
   }
 
@@ -20,7 +20,7 @@ export class EncryptionService {
     const hashValueHex = md.digest();
 
     const sig = new jsrsasign.KJUR.crypto.Signature({'alg': 'SHA256withRSA'});
-    sig.init(this.key);
+    sig.init(this.privateKey);
     sig.updateString(hashValueHex);
     const signature = sig.sign();
     console.log(signature);

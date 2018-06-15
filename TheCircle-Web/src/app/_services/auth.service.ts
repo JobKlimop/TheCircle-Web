@@ -8,7 +8,8 @@ export class AuthService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private url = environment.accountApiUrl;
   public loggedIn = false;
-  public key: string;
+  public privateKey: string;
+  public publicKey: string;
   public crt: string;
   public token: string;
   public user: User;
@@ -24,11 +25,11 @@ export class AuthService {
       {headers: this.headers})
       .toPromise()
       .then((response: any) => {
-        console.log(response.user.username);
         this.setSession(
           response.token,
           response.crt.cert,
           response.crt.private,
+          response.crt.public,
           response.user.username,
           response.user.slogan,
           response.user.email
@@ -41,15 +42,20 @@ export class AuthService {
   }
 
   logout() {
-    delete this.key;
+    delete this.privateKey;
+    delete this.publicKey;
     delete this.crt;
     delete this.token;
   }
 
-  setSession(token, certificate, privateKey, username, slogan, email) {
-    this.key = privateKey;
+  setSession(token, certificate, privateKey, publicKey, username, slogan, email) {
+    this.privateKey = privateKey;
+    this.publicKey = publicKey;
     this.token = token;
     this.crt = certificate;
+
+    console.log(this.privateKey);
+    console.log(this.crt);
 
     this.user = new User(username, slogan, email);
   }

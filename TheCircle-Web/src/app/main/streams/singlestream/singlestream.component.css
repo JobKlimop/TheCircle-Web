@@ -1,6 +1,3 @@
-.singleStreamComponent {
-  width: 40%;
-  border: 1px solid lightgray;
-  cursor: pointer;
-  margin-bottom: 10px;
+li {
+  display: inline-block;
 }
