@@ -10,15 +10,21 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/header/header.component';
 
+import { VideoplayerComponent } from './videoplayer/videoplayer.component';
+
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AuthService} from './_services/auth.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './_services/auth-guard.service';
 import {EncryptionService} from './_services/encryption.service';
-import { HeaderComponent } from './main/header/header.component';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import {AuthInterceptor} from './_interceptors/auth.interceptor';
+import { VideoplayerDirective } from './videoplayer/videoplayer.directive';
+import {VgCoreModule} from "videogular2/core";
+import {VgControlsModule} from "videogular2/controls";
+import {VgOverlayPlayModule} from "videogular2/overlay-play";
+import {VgBufferingModule} from "videogular2/buffering";
 
 
 @NgModule({
@@ -29,14 +35,20 @@ import {AuthInterceptor} from './_interceptors/auth.interceptor';
     AuthComponent,
     LoginComponent,
     HeaderComponent,
-    DropdownDirective
+    DropdownDirective,
+    VideoplayerComponent,
+    VideoplayerDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     AuthService,
