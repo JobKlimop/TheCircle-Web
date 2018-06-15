@@ -13,9 +13,13 @@ let socket = require("socket.io-client")
 
 export class ChatService {
     @Output() messagesChanged: EventEmitter<Array<string>> = new EventEmitter();
+    @Output() viewersChanged: EventEmitter<String> = new EventEmitter();
+
     public authservice: AuthService;
     public messages = new Array();
-     constructor(AuthService: AuthService, private encryptionService: EncryptionService){
+    public viewers = new String;
+
+    constructor(AuthService: AuthService, private encryptionService: EncryptionService){
          
         console.log('chat service')
         socket = socket.connect(host, {
@@ -29,13 +33,13 @@ export class ChatService {
    
     
     addEventHandlers(){
-
         socket.on('connect', () => {
             console.log("Connected");
             this.setUsername(this.authservice.username);
+            socket.emit("client_count", "room-1");
         })
     
-            // Fires after a connection error.
+        // Fires after a connection error.
         socket.on('connect_error', (error) => {
             console.log(error);
         });
@@ -133,6 +137,7 @@ export class ChatService {
         // Response contains the name of the room and the amount of clients connected to it.
         socket.on("client_count", (response) => {
             console.log(response.room + " has " + response.numberOfClients + " clients connected");
+            this.changeViewers(response.numberOfClients);
         });
     }
     
@@ -176,8 +181,14 @@ export class ChatService {
         // subcribed components the a message has been received and also sends the new array.
         this.messages.push(recMessage)
         this.messagesChanged.emit(this.messages)
+        //socket.emit("client_count", "room-1");
+    }
+
+    changeViewers(newViewers){
+        // Check for changed amount of viewers.
+        this.viewers = newViewers;
+        this.viewersChanged.emit(this.viewers)
+        console.log(this.viewers);
+        
     }
 }
-
-
- 
