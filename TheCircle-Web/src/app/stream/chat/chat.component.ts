@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
-    /* Examples.*/
+    /* Example messages. 
     this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
     this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
     this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
@@ -34,7 +34,8 @@ export class ChatComponent implements OnInit {
     this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
     this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
     this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
-
+    */
+    
     this.chatService.messagesChanged
     .subscribe((newMessages) => {
       this.messages = newMessages
