@@ -9,14 +9,12 @@ import {MyinfoComponent} from './myinfo/myinfo.component';
 const appRoutes: Routes = [
   {path: '', redirectTo: 'main', pathMatch: 'full'},
 
-  {path: '', canActivate: [AuthGuard], component: MainComponent, children: [
-      {path: 'main', component: MainComponent},
-      
-    ]},
+  // These paths require login.
+  {path: '', canActivate: [AuthGuard], component: MainComponent},
+  {path: 'stream', canActivate: [AuthGuard], component: StreamComponent},
 
   {path: 'auth', component: AuthComponent},
-  { path: 'stream', component: StreamComponent },
-  { path: 'myinfo', component: MyinfoComponent}
+  {path: 'myinfo', component: MyinfoComponent}
 ];
 
 @NgModule({

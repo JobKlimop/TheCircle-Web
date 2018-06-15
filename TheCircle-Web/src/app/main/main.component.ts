@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private encryptionService: EncryptionService, private chatService: ChatService, private router: Router) { }
+  constructor(private encryptionService: EncryptionService, private router: Router) { }
 
   ngOnInit() {
   }
