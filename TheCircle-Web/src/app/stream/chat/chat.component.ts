@@ -26,7 +26,23 @@ export class ChatComponent implements OnInit {
     .subscribe((newMessages) => {
       this.messages = newMessages
     })
+
+    // Bootleg way to submit with enter button, whoops.
+    var input = document.getElementById("replybox");
+
+    // Execute a function when the user releases a key on the keyboard.
+    input.addEventListener("keyup", function(event) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Number 13 is the "Enter" key on the keyboard
+      if (event.keyCode === 13) {
+        // Trigger the button element with a click
+        document.getElementById("submit").click();
+      }
+    });
   }
+
+  
 
   
   send(){

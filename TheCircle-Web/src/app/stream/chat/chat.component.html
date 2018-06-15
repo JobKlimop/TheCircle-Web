@@ -11,10 +11,9 @@
 
   
     </div>
+    
       <div class="input-container">
-        <div class="text text-r" style="background:whitesmoke !important">
-          <input type="text" class="inputtext" [(ngModel)]="message" placeholder="Say something">
-        </div>
-        <button type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0">{{ message.length==0 ? '...' : 'Send' }}</button>
-      </div>
+          <input id="replybox" class="text text-r" style="background:whitesmoke !important" type="text" class="inputtext" [(ngModel)]="message" placeholder="Say something">
+          <button id="submit" type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0">{{ message.length==0 ? '...' : 'Send' }}</button>
+    </div>
     </div>
