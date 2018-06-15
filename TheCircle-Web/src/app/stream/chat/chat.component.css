@@ -71,8 +71,7 @@ input:focus{
 } 
 
 #mytext{
-    border:0;
-    border-bottom: 1px solid lightgrey;
+    border: 1px solid lightgrey;
     padding:10px;
     background:whitesmoke;
 }
