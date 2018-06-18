@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EncryptionService} from '../_services/encryption.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private encryptionService: EncryptionService) { }
 
   ngOnInit() {
   }
 
+  testClick() {
+    const msg = 'testmessageGiedeIsFaggot';
+    const signedMsg = this.encryptionService.sign(msg);
+    
+    let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
+    console.log(valid)
+  }
 }
