@@ -13,7 +13,7 @@ import { HeaderComponent } from './main/header/header.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import {AuthService} from './_services/auth.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthGuard} from './_services/auth-guard.service';
 import {EncryptionService} from './_services/encryption.service';
 import { ChatService } from './_services/chat.service';
@@ -21,6 +21,8 @@ import { StreamComponent } from './stream/stream.component';
 import { VideoComponent } from './stream/video/video.component';
 import { ChatComponent } from './stream/chat/chat.component';
 import { MyinfoComponent } from './myinfo/myinfo.component';
+import { DropdownDirective } from './_shared/dropdown.directive';
+import { AuthInterceptor } from './_interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -29,11 +31,7 @@ import { MyinfoComponent } from './myinfo/myinfo.component';
     MainComponent,
     HeaderComponent,
     AuthComponent,
-    LoginComponent,
-    StreamComponent,
-    VideoComponent,
-    ChatComponent,
-    MyinfoComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,8 +43,7 @@ import { MyinfoComponent } from './myinfo/myinfo.component';
   providers: [
     AuthService,
     AuthGuard,
-    EncryptionService,
-    ChatService
+    EncryptionService
   ],
   bootstrap: [AppComponent]
 })
