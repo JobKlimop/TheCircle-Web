@@ -51,4 +51,10 @@
 
 .dialogText {
   color: white;
+  margin: 30px;
+
+}
+
+.infoDiv {
+  margin-bottom: 20px;
 }

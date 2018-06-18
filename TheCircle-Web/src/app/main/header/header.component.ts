@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('dialog closed');
+      // Can be used for updating user information
     });
   }
 

@@ -2,7 +2,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -12,9 +11,9 @@ import { MainComponent } from './main/main.component';
 import { HeaderComponent } from './main/header/header.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
-import { StreamComponent } from './stream/stream.component';
-import { VideoComponent } from './stream/video/video.component';
-import { ChatComponent } from './stream/chat/chat.component';
+import { StreamComponent } from './main/stream/stream.component';
+import { VideoComponent } from './main/stream/video/video.component';
+import { ChatComponent } from './main/stream/chat/chat.component';
 
 // Services.
 import { AuthService } from './_services/auth.service';
@@ -24,15 +23,15 @@ import { ChatService } from './_services/chat.service';
 import { AccountDetailsComponent } from './main/account/account-details/account-details.component';
 import { HomeComponent } from './main/home/home.component';
 import { DropdownDirective } from './_shared/dropdown.directive';
-import {AuthInterceptor} from './_interceptors/auth.interceptor';
-import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthInterceptor } from './_interceptors/auth.interceptor';
+import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StreamsComponent } from './main/streams/streams.component';
 import { SinglestreamComponent } from './main/streams/singlestream/singlestream.component';
 import { FooterComponent } from './main/footer/footer.component';
+// import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 import {RouterModule} from '@angular/router';
-import {ToastrModule} from "ngx-toastr";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -49,7 +48,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HomeComponent,
     StreamsComponent,
     SinglestreamComponent,
-    FooterComponent
+    FooterComponent,
     StreamComponent,
     VideoComponent,
     ChatComponent
@@ -65,8 +64,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule,
-    BrowserAnimationsModule
+    MatDialogModule
   ],
   entryComponents: [
     AccountDetailsComponent

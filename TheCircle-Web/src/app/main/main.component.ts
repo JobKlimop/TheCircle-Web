@@ -15,11 +15,11 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  testClick() {
-    const msg = 'testmessageGiedeIsFaggot';
-    const signedMsg = this.encryptionService.sign(msg);
-    
-    let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
-    console.log(valid)
-  }
+  // testClick() {
+  //   const msg = 'testmessageGiedeIsFaggot';
+  //   const signedMsg = this.encryptionService.sign(msg);
+  //
+  //   let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
+  //   console.log(valid)
+  // }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EncryptionService} from '../../_services/encryption.service';
-import { ChatService } from '../../_services/chat.service';
-import { AuthService } from '../../_services/auth.service';
+import { EncryptionService} from '../../../_services/encryption.service';
+import { ChatService } from '../../../_services/chat.service';
+import { AuthService } from '../../../_services/auth.service';
 
 @Component({
   selector: 'app-chat',

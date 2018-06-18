@@ -14,6 +14,7 @@ export class AuthService {
   public crt: string;
   public token: string;
   public user: User;
+  public username: string;
 
   constructor(private http: HttpClient, private toastr: ToastrService) {
 
