@@ -4,12 +4,7 @@
 
 export const environment = {
   production: false,
-  // Local.
-  // accountApiUrl: 'http://localhost:3000/api/account'
-
-  // Live.
   accountApiUrl: 'https://the-circle-account.herokuapp.com/api/account'
-
 };
 
 /*
