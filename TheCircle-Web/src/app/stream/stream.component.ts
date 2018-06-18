@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatService } from '../_services/chat.service'
+import { ChatService } from '../_services/chat.service';
 
 @Component({
   selector: 'app-stream',
@@ -12,7 +12,7 @@ export class StreamComponent implements OnInit {
   public quote: string;
   public viewers: string;
 
-  
+
 
   constructor(private router: Router, private chatService: ChatService) {
     // Set some default user information.
@@ -24,7 +24,7 @@ export class StreamComponent implements OnInit {
   ngOnInit() {
     this.chatService.viewersChanged
     .subscribe((newViewers) => {
-      this.viewers = newViewers
+      this.viewers = newViewers;
     });
   }
 }
