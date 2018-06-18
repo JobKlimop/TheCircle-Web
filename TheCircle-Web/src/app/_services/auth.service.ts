@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {ToastrService} from "ngx-toastr";
 import {User} from '../_models/user.model';
 
 @Injectable()
@@ -14,7 +15,7 @@ export class AuthService {
   public token: string;
   public user: User;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private toastr: ToastrService) {
 
   }
 
@@ -35,9 +36,13 @@ export class AuthService {
           response.user.email
         );
         this.loggedIn = true;
+
+        // Set username for chat later.
+        this.username = username;
       })
       .catch((error) => {
         console.log(error);
+        this.toastr.error('The username or password provided is incorrect.', 'Invalid credentials');
       });
   }
 

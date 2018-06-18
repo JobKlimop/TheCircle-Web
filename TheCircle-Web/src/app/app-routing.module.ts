@@ -5,16 +5,20 @@ import {AuthGuard} from './_services/auth-guard.service';
 import {MainComponent} from './main/main.component';
 import {HomeComponent} from './main/home/home.component';
 import {StreamsComponent} from './main/streams/streams.component';
+import { StreamComponent } from './stream/stream.component';
+import {MyinfoComponent} from './myinfo/myinfo.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 
   {path: '', canActivate: [AuthGuard], component: MainComponent, children: [
       {path: 'home', component: HomeComponent},
-      {path: 'streams', component: StreamsComponent}
+      {path: 'streams', component: StreamsComponent},
+      {path: 'stream', component: StreamComponent}
     ]},
 
-  {path: 'auth', component: AuthComponent}
+  {path: 'auth', component: AuthComponent},
+  {path: 'myinfo', component: MyinfoComponent}
 ];
 
 @NgModule({
