@@ -35,7 +35,7 @@ export class ChatComponent implements OnInit {
     this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
     this.messages.push({content: "Yeah this guy's about as entertaining as a dumpster fire...", user: 'Boboenderie'});
     */
-    
+
     this.chatService.messagesChanged
     .subscribe((newMessages) => {
       this.messages = newMessages
@@ -56,9 +56,9 @@ export class ChatComponent implements OnInit {
     });
   }
 
-  
 
-  
+
+
   send(){
     // Commented because sign doesn't work properly without the auth service.
     this.chatService.joinRoom('room-1')
