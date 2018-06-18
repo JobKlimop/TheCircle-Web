@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChatService } from '../_services/chat.service';
+import { ChatService } from '../../_services/chat.service';
 
 @Component({
   selector: 'app-stream',
