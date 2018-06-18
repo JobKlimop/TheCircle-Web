@@ -1,0 +1,20 @@
+<div class="chatbox">
+
+  <!-- The messages. -->
+  <div style="width:100%;"*ngFor="let message of messages.slice().reverse()">
+    <div class="msj-rta macro">
+      <div class="text text">
+          <p>{{message.content}}</p>
+          <p><small>{{message.user}}</small></p>
+      </div>                             
+    </div>
+  </div>
+</div>
+  
+<!-- The user's input. -->
+<div class="msj-rta macro" style="margin:auto"> 
+  <div class="text text-r" style="background:whitesmoke !important">
+    <input id="mytext" style="background:whitesmoke !important" type="text" [(ngModel)]="message" placeholder="Say something">
+    <button id="submit" type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0" style="position: absolute; left: -9999px; width: 1px; height: 1px;">{{ message.length==0 ? '...' : 'Send' }}</button>
+  </div>
+</div>
