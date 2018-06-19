@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { EncryptionService} from '../_services/encryption.service';
+import { ChatService } from '../_services/chat.service';
+import { Router } from '@angular/router';
 import {StreamerService} from "../services/streamer.service";
 import {Streamer} from "../shared/models/streamer";
 
@@ -11,8 +14,8 @@ export class MainComponent implements OnInit {
 
   public streamers: Streamer[] = [];
   public viewers = 0;
-
-  constructor(private streamerService: StreamerService) { }
+  
+  constructor(private encryptionService: EncryptionService, private router: Router, private streamerService: StreamerService) { }
 
   ngOnInit() {
     this.streamerService.getStreamers()
@@ -38,4 +41,11 @@ export class MainComponent implements OnInit {
       });
   }
 
+  // testClick() {
+  //   const msg = 'testmessageGiedeIsFaggot';
+  //   const signedMsg = this.encryptionService.sign(msg);
+  //
+  //   let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
+  //   console.log(valid)
+  // }
 }

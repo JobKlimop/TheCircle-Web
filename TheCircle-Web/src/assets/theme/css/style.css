@@ -443,14 +443,18 @@ nav .mbr-section-btn {
 
 @media (min-width: 993px) and (max-width: 1199px) {
   .two {
-    padding-bottom: 0;
+    font-size: small;
   }
 }
 @media (min-width: 1200px) {
   .two {
     padding-bottom: 100%; !important;
   }
-
+}
+@media (max-width: 400px) {
+  .tekst {
+    font-size: small;
+  }
 }
 
 @media (max-width: 992px) {

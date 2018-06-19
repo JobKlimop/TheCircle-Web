@@ -3,10 +3,14 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "module": "es2015",
-    "types": []
+    "types": ["node"],
+    "typeRoots": ["../node_modules/@types"]
   },
   "exclude": [
     "src/test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "paths": {
+      "socket.io-client": ["../node_modules/socket.io-client/dist/socket.io.slim.js"]
+}
 }
