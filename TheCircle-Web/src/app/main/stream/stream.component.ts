@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../../_services/chat.service';
 
+
 @Component({
   selector: 'app-stream',
   templateUrl: './stream.component.html',
@@ -11,8 +12,6 @@ export class StreamComponent implements OnInit {
   public username: string;
   public quote: string;
   public viewers: string;
-
-
 
   constructor(private router: Router, private chatService: ChatService) {
     // Set some default user information.
