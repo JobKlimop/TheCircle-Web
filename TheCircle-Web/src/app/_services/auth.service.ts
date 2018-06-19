@@ -14,7 +14,6 @@ export class AuthService {
   public crt: string;
   public token: string;
   public user: User;
-  public username: string;
 
   constructor(private http: HttpClient, private toastr: ToastrService) {
 
@@ -34,12 +33,10 @@ export class AuthService {
           response.crt.public,
           response.user.username,
           response.user.slogan,
-          response.user.email
+          response.user.email,
+          response.user.avatar
         );
         this.loggedIn = true;
-
-        // Set username for chat later.
-        this.username = username;
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +51,7 @@ export class AuthService {
     delete this.token;
   }
 
-  setSession(token, certificate, privateKey, publicKey, username, slogan, email) {
+  setSession(token, certificate, privateKey, publicKey, username, slogan, email, avatar) {
     this.privateKey = privateKey;
     this.publicKey = publicKey;
     this.token = token;
@@ -63,7 +60,7 @@ export class AuthService {
     console.log(this.privateKey);
     console.log(this.crt);
 
-    this.user = new User(username, slogan, email);
+    this.user = new User(username, slogan, email, avatar);
   }
 
   isAuthenticated() {

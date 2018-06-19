@@ -35,7 +35,7 @@ export class ChatService {
     addEventHandlers(){
         socket.on('connect', () => {
             console.log("Connected");
-            this.setUsername(this.authservice.username);
+            this.setUsername(this.authservice.user.username);
             socket.emit("client_count", "room-1");
         })
     

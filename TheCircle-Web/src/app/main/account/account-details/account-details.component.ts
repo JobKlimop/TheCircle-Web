@@ -9,7 +9,6 @@ import {AuthService} from '../../../_services/auth.service';
   styleUrls: ['./account-details.component.css']
 })
 export class AccountDetailsComponent implements OnInit {
-  userImage = '../../../assets/img/userImage.png';
   user: User;
 
 

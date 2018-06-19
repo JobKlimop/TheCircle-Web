@@ -31,7 +31,7 @@ export class MainComponent implements OnInit {
         for (var i = 0; i < sList.length; i++) {
           var streamerName = sList[i];
           var object = tmp.live[streamerName];
-          var streamer = new User(object.publisher.stream, null, object.publisher.ip);
+          var streamer = new User(object[0], null, object[0].publisher.ip, null);
           this.streamers.push(streamer);
           this.streamerService.getViewers(streamerName)
             .subscribe(viewer => {

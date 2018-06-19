@@ -5,9 +5,10 @@ export class User {
   public avatar: String;
 
   // Doesn't need a avatar per sé.
-  constructor(username: string, slogan: string, email: string) {
+  constructor(username: string, slogan: string, email: string, avatar: string) {
     this.username = username;
     this.slogan = slogan;
     this.email = email;
+    this.avatar = avatar;
   }
 }
