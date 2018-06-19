@@ -2,7 +2,7 @@ export class User {
   public username: string;
   public slogan: string;
   public email: string;
-  public avatar: String;
+  public avatar: string;
 
   // Doesn't need a avatar per sé.
   constructor(username: string, slogan: string, email: string, avatar: string) {
