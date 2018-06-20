@@ -12,9 +12,7 @@
 </div>
   
 <!-- The user's input. -->
-<div class="msj-rta macro" style="margin:auto"> 
-  <div class="text text-r" style="background:whitesmoke !important">
-    <input id="mytext" style="background:whitesmoke !important" type="text" [(ngModel)]="message" placeholder="Say something" maxlength="100">
+  <div class="msj-rta text text-r" style="background:whitesmoke !important">
+    <input id="mytext" type="text" [(ngModel)]="message" placeholder="Say something" maxlength="100">
     <button id="submit" type="submit" class="replyBtn" (click)="send()" [disabled]="message.length==0" style="position: absolute; left: -9999px; width: 1px; height: 1px;">{{ message.length==0 ? '...' : 'Send' }}</button>
   </div>
-</div>

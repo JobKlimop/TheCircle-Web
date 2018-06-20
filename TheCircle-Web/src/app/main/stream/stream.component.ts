@@ -13,12 +13,14 @@ export class StreamComponent implements OnInit {
   @Input() stream: Stream;
   public username: string;
   public quote: string;
+  public avatar: string;
   public viewers: string;
 
   constructor(private router: Router, private chatService: ChatService) {
     // Set some default user information.
     this.username = "Transparent person";
     this.quote = "The best streamer on the circle.";
+    this.avatar = "https://puu.sh/AD8Jo/4e7870d676.png";
     this.viewers = "0";
    }
 
