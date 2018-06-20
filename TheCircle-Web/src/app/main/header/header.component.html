@@ -11,12 +11,12 @@
     <div class="menu-logo">
       <div class="navbar-brand">
         <span class="navbar-logo">
-          <a routerLink="active" routerLinkActive="/main">
+          <a routerLink="/home" routerLinkActive="active">
             <img src={{logoLocation}} class="logoIcon">
           </a>
         </span>
         <span class="navbar-caption-wrap">
-          <a class="navbar-caption text-white display-4" routerLink="active" routerLinkActive="/main">
+          <a class="navbar-caption text-white display-4" routerLinkActive="active" routerLink="/">
             The Circle
           </a>
         </span>
@@ -25,27 +25,27 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
         <li class="nav-item">
-          <a class="nav-link link text-white display-4" routerLinkActive="/main">
+          <a class="nav-link link text-white display-4" routerLinkActive="active" routerLink="/streams">
             <span class="mbri-video mbr-iconfont mbr-iconfont-btn"></span>
             Streams
           </a>
         </li>
-        <li class="nav-item dropdown" appDropdown [ngClass]="{'open': accountIsOpen === true}">
-          <a class="dropdown-toggle nav-link link text-white display-4" role="button">
-            <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>
-            Account <span class="caret"></span>
+        <li class="nav-item dropdown">
+          <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">
+            <span class="mbr-iconfont mbr-iconfont-btn"><img src="{{authService.user.avatar}}" style="border-radius: 50%; height: 25px;"></span>
+            {{authService.user.username}}
           </a>
           <ul class="dropdown-menu">
-            <li>
-              <a class="nav-link link text-white display-4" routerLinkActive="/main">
-                <span class="mbri-setting3 mbr-iconfont mbr-iconfont-btn"></span>
-                My Info
+            <li class="dropdown-item">
+              <a class="nav-link link text-white display-4" (click)="openDialog()">
+                <span class="mbri-preview mbr-iconfont mbr-iconfont-btn"></span>
+                My info
               </a>
             </li>
-            <li>
-              <a class="nav-link link text-white display-4" routerLinkActive="/main">
+            <li class="dropdown-item">
+              <a class="nav-link link text-white display-4" href="/auth" (click)="logout()">
                 <span class="mbri-logout mbr-iconfont mbr-iconfont-btn"></span>
-                Logout
+                Log out
               </a>
             </li>
           </ul>

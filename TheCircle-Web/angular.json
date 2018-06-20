@@ -24,10 +24,12 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "./node_modules/dashjs/dist/dash.all.min.js",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/theme/js/canva_moving_effect.js"
+            ]
           },
           "configurations": {
             "production": {

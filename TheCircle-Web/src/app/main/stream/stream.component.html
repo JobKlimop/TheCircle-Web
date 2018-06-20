@@ -1,0 +1,30 @@
+<!-- Streamer details. -->
+<div class="container-fluid">
+<div class="row" id="background-image" style="margin-top: 77px; padding-top: 5px;" >
+  <div class="container">
+    <div class="col-md-10">
+      <div id="foto">
+      <img
+      src="https://puu.sh/AD8Jo/4e7870d676.png"
+      class="img-thumbnail">
+      </div>
+      <div id="tekst">
+      <h1 style="color: white;">{{username}}</h1>
+      <p style="color: white;"><b>"{{quote}}"</b> People watching:  <b>{{viewers}} </b> </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Video and chat. -->
+<div class="container" style="padding-top: 5px; margin-bottom: 50px; margin-top: 20px">
+  <div class="row">
+    <div class="col-md-8">
+      <app-video></app-video>
+    </div>
+    <div class="col-md-4">
+     <app-chat [streamer] = username></app-chat>
+    </div>
+  </div>
+</div>

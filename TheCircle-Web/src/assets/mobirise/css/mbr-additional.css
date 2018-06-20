@@ -1633,7 +1633,6 @@ body {
   position: relative;
   opacity: 1;
   height: auto;
-  padding: 1.4rem 0;
   visibility: visible;
 }
 .cid-qUjvDdH3ky .collapsed .dropdown .dropdown-submenu {
@@ -1717,7 +1716,6 @@ body {
     position: relative;
     opacity: 1;
     height: auto;
-    padding: 1.4rem 0;
     visibility: visible;
   }
   .cid-qUjvDdH3ky .dropdown .dropdown-submenu {
@@ -1780,9 +1778,6 @@ body {
 .cid-qUjusC35Uz p {
   color: #767676;
   text-align: left;
-}
-.cid-qUjusC35Uz .card-box {
-  padding-top: 2rem;
 }
 .cid-qUjusC35Uz .card-wrapper {
   height: 100%;

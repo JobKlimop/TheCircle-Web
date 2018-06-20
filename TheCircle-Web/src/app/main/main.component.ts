@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {EncryptionService} from '../_services/encryption.service';
+import { EncryptionService} from '../_services/encryption.service';
+import { ChatService } from '../_services/chat.service';
+import { Router } from '@angular/router';
+
+// StreamerService uses the User model for their streamer list (since they're mutual).
+import { User } from '../_models/user.model';
 
 @Component({
   selector: 'app-main',
@@ -8,16 +13,11 @@ import {EncryptionService} from '../_services/encryption.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private encryptionService: EncryptionService) { }
+  public streamers: User[] = [];
+  public viewers = 0;
+
+  constructor(private encryptionService: EncryptionService, private router: Router) { }
 
   ngOnInit() {
-  }
-
-  testClick() {
-    const msg = 'testmessageGiedeIsFaggot';
-    const signedMsg = this.encryptionService.sign(msg);
-    
-    let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
-    console.log(valid)
   }
 }
