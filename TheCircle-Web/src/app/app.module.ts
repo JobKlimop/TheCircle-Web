@@ -27,7 +27,6 @@ import { AuthGuard } from './_services/auth-guard.service';
 import { EncryptionService } from './_services/encryption.service';
 import { ChatService } from './_services/chat.service';
 import {StreamService} from './_services/stream.service';
-import { StreamerService } from './_services/streamer.service';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import { AuthInterceptor } from './_interceptors/auth.interceptor';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material';
@@ -76,7 +75,6 @@ import { RouterModule } from '@angular/router';
     ChatService,
     EncryptionService,
     StreamService,
-    StreamerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
