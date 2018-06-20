@@ -10,7 +10,7 @@ export class StreamService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private stream: Stream;
   private streamArray = [];
-  private url = environment.videoApiUrl;
+  private url = environment.videoDataApiUrl;
 
   constructor(private http: HttpClient) {
 
@@ -24,7 +24,7 @@ export class StreamService {
       .then((response: any) => {
 
         this.streamArray = [];
-        for (let s in response.live){
+        for (let s in response.live) {
           this.streamArray.push(response.live[s]);
         }
         return this.streamArray;

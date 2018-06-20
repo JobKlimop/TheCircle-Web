@@ -33,6 +33,7 @@ import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { VideoplayerDirective } from './_directives/videoplayer.directive';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     StreamComponent,
     VideoComponent,
-    ChatComponent
+    ChatComponent,
+    VideoplayerDirective
   ],
   imports: [
     BrowserModule,

@@ -5,11 +5,13 @@ export class Stream {
   public slogan: string;
   public ip: string;
   public subscribers: number;
+  public publisher: string;
 
-  constructor(stream: string, slogan: string, ip: string, subscribers: number) {
+  constructor(stream: string, slogan: string, ip: string, subscribers: number, publisher: string) {
     this.stream = stream;
     this.slogan = slogan;
     this.ip = ip;
     this.subscribers = subscribers;
+    this.publisher = publisher;
   }
 }

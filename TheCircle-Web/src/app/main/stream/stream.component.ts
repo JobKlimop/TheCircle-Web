@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../../_services/chat.service';
+import {Stream} from '../../_models/stream.model';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { ChatService } from '../../_services/chat.service';
   styleUrls: ['./stream.component.css']
 })
 export class StreamComponent implements OnInit {
+  @Input() stream: Stream;
   public username: string;
   public quote: string;
   public viewers: string;
