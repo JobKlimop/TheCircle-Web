@@ -1,12 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import { AuthService } from '../../_services/auth.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 describe('HeaderComponent', () => {
   let service = AuthService;
+  let httpMock: HttpTestingController;
   beforeEach((() => {
     TestBed.configureTestingModule({
-      providers: [ AuthService ];
+      imports: [HttpClientTestingModule],
+      providers: [ AuthService ],
       declarations: [ HeaderComponent ]
     }).compileComponents();
   }));
