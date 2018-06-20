@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { EncryptionService} from '../../../_services/encryption.service';
 import { ChatService } from '../../../_services/chat.service';
 import { AuthService } from '../../../_services/auth.service';
@@ -13,6 +13,8 @@ export class ChatComponent implements OnInit {
   // Track the current reply message.
   message = "";
   messages = this.chatService.messages;
+
+  @Input() streamer: string
   
 
   constructor(private encryptionService: EncryptionService, private chatService: ChatService, private authService: AuthService) { 
@@ -21,6 +23,12 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+    this.chatService.connectionChanged
+    .subscribe((res) => {
+      this.chatService.joinRoom(this.streamer)
+    })
     /* Example messages. 
     this.messages.push({content: "Fellas, I am about to stream!", user: 'Toby'});
     this.messages.push({content: "Don't give a h*ck!", user: 'Kraai'});
@@ -61,9 +69,8 @@ export class ChatComponent implements OnInit {
 
   send(){
     // Commented because sign doesn't work properly without the auth service.
-    this.chatService.joinRoom('room-1')
     let message = this.encryptionService.sign(this.message)
-    message.room = 'room-1'
+    message.room = this.streamer
     this.chatService.sendMessage(message);
 
     // Empty out message field again.
