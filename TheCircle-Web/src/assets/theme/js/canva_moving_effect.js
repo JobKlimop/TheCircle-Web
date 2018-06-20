@@ -1,4 +1,4 @@
-$(window).on('load', function(){
+$(document).ready(function() {
 	var canvas = $('#bg').children('canvas'),
 		background = canvas[0],
 		foreground1 = canvas[1],

@@ -4,7 +4,8 @@ import { AuthService } from './auth.service';
 import { Chatmessage } from '../_models/chatmessage';
 import { EncryptionService } from './encryption.service';
 
-const host = 'ws://the-circle-chat.herokuapp.com/';
+const host = "ws://the-circle-chat.herokuapp.com/"
+// const host =  "ws://145.49.24.24:3000"
 
 let socket = require('socket.io-client');
 
@@ -14,6 +15,8 @@ let socket = require('socket.io-client');
 export class ChatService {
     @Output() messagesChanged: EventEmitter<Array<string>> = new EventEmitter();
     @Output() viewersChanged: EventEmitter<String> = new EventEmitter();
+    @Output() connectionChanged: EventEmitter<string> = new EventEmitter();
+
 
     public authservice: AuthService;
     public messages = new Array();
@@ -21,7 +24,6 @@ export class ChatService {
 
     constructor(AuthService: AuthService, private encryptionService: EncryptionService){
          
-        console.log('chat service');
         socket = socket.connect(host, {
             transports: ['websocket'],
             rejectUnauthorized: false
@@ -34,9 +36,20 @@ export class ChatService {
     
     addEventHandlers(){
         socket.on('connect', () => {
-            console.log("Connected");
-            this.setUsername(this.authservice.username);
-            socket.emit("client_count", "room-1");
+            socket.emit("verify_identity", {"certificate":this.authservice.crt})
+        })
+
+        socket.on('verified', (verified) => {
+            this.connectionChanged.emit('true')
+            console.log(verified)
+        })
+
+        socket.on("history", (history) => {
+            console.log(history.history)
+            for(let m of history.history){
+                this.messages.push(m)
+            }
+            this.messagesChanged.emit(this.messages)
         })
     
         // Fires after a connection error.
@@ -121,6 +134,7 @@ export class ChatService {
         // Fires after joining a room.
         socket.on("room_joined", (room) => {
             console.log("Joined room " + room);
+            socket.emit("history", room)
         });
     
         // Fires after leaving a room.
@@ -146,6 +160,7 @@ export class ChatService {
     // room you are sending the message to.
     sendMessage(message) {
         socket.emit("message", message);
+        socket.emit("connection_info");
     }
     
     // Before you can send messages, you need to provide a username.
@@ -189,5 +204,9 @@ export class ChatService {
         this.viewers = newViewers;
         this.viewersChanged.emit(this.viewers)
         console.log(this.viewers);  
+    }
+
+    getHistory(){
+        socket.emit("history", "room-1")
     }
 }

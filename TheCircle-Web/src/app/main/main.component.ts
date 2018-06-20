@@ -3,6 +3,10 @@ import { EncryptionService} from '../_services/encryption.service';
 import { ChatService } from '../_services/chat.service';
 import { Router } from '@angular/router';
 
+// StreamerService uses the User model for their streamer list (since they're mutual).
+import { StreamerService } from '../_services/streamer.service';
+import { User } from '../_models/user.model';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,16 +14,32 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private encryptionService: EncryptionService, private router: Router) { }
+  public streamers: User[] = [];
+  public viewers = 0;
+  
+  constructor(private encryptionService: EncryptionService, private router: Router, private streamerService: StreamerService) { }
 
   ngOnInit() {
+    this.streamerService.getStreamers()
+      .subscribe((response: any) => {
+        console.log(response.live);
+        var tmp = response;
+        var sList = [];
+        for (var s in tmp.live) {
+          sList.push(s);
+        }
+        for (var i = 0; i < sList.length; i++) {
+          var streamerName = sList[i];
+          var object = tmp.live[streamerName];
+          var streamer = new User(object[0], null, object[0].publisher.ip, null);
+          this.streamers.push(streamer);
+          this.streamerService.getViewers(streamerName)
+            .subscribe(viewer => {
+              var viewRes:any = viewer;
+              this.viewers = viewRes.viewers;
+            })
+        }
+        console.log(this.streamers);
+      });
   }
-
-  // testClick() {
-  //   const msg = 'testmessageGiedeIsFaggot';
-  //   const signedMsg = this.encryptionService.sign(msg);
-  //
-  //   let valid = this.encryptionService.verify(signedMsg.msg, signedMsg.crt, signedMsg.signature)
-  //   console.log(valid)
-  // }
 }
