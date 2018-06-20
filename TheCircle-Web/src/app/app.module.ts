@@ -14,21 +14,24 @@ import { LoginComponent } from './auth/login/login.component';
 import { StreamComponent } from './main/stream/stream.component';
 import { VideoComponent } from './main/stream/video/video.component';
 import { ChatComponent } from './main/stream/chat/chat.component';
+import { AccountDetailsComponent } from './main/account/account-details/account-details.component';
+import { HomeComponent } from './main/home/home.component';
+import { StreamsComponent } from './main/streams/streams.component';
+import { SinglestreamComponent } from './main/streams/singlestream/singlestream.component';
+import { FooterComponent } from './main/footer/footer.component';
+
 
 // Services.
 import { AuthService } from './_services/auth.service';
 import { AuthGuard } from './_services/auth-guard.service';
 import { EncryptionService } from './_services/encryption.service';
 import { ChatService } from './_services/chat.service';
-import { AccountDetailsComponent } from './main/account/account-details/account-details.component';
-import { HomeComponent } from './main/home/home.component';
+import {StreamService} from './_services/stream.service';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import { AuthInterceptor } from './_interceptors/auth.interceptor';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StreamsComponent } from './main/streams/streams.component';
-import { SinglestreamComponent } from './main/streams/singlestream/singlestream.component';
-import { FooterComponent } from './main/footer/footer.component';
+
 // import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import {RouterModule} from '@angular/router';
@@ -75,6 +78,7 @@ import {RouterModule} from '@angular/router';
     EncryptionService,
     ChatService,
     EncryptionService,
+    StreamService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

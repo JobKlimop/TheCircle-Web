@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  accountApiUrl: 'https://the-circle-account.herokuapp.com/api/account'
+  accountApiUrl: 'https://the-circle-account.herokuapp.com/api/account',
+  videoApiUrl: 'http://localhost:8000/api'
 };
 
 /*
