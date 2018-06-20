@@ -10,7 +10,7 @@ import {StreamService} from "../../../_services/stream.service";
   styleUrls: ['./singlestream.component.css']
 })
 export class SinglestreamComponent implements OnInit {
-  @Input() stream: Stream;
+  @Input() stream: any;
   subscriberArray = [];
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
