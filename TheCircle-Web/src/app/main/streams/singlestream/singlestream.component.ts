@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Stream} from '../../../_models/stream.model';
 import {Observable} from 'rxjs';
 import {NavigationExtras, Router} from '@angular/router';
+import {StreamService} from "../../../_services/stream.service";
 
 @Component({
   selector: 'app-singlestream',
@@ -14,11 +15,11 @@ export class SinglestreamComponent implements OnInit {
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
 
-  navigationExtras: NavigationExtras = {
-    queryParams: {'username': this.stream.publisher.stream},
-  };
+  // navigationExtras: NavigationExtras = {
+  //   queryParams: {'username': this.stream.publisher.stream},
+  // };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private streamService: StreamService) { }
 
   ngOnInit() {
     this.subscriberArray = [];
@@ -30,6 +31,7 @@ export class SinglestreamComponent implements OnInit {
   }
 
   toStream() {
-    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream, this.navigationExtras);
+    this.streamService.setStreamer(this.stream.publisher.stream);
+    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream);
   }
 }
