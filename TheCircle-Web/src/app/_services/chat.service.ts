@@ -49,6 +49,7 @@ export class ChatService {
             for(let m of history.history){
                 this.messages.push(m)
             }
+            this.messages.reverse();
             this.messagesChanged.emit(this.messages)
         })
     
