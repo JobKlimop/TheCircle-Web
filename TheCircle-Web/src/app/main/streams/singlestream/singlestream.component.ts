@@ -15,7 +15,7 @@ export class SinglestreamComponent implements OnInit {
   viewerIcon = '../../../../assets/img/viewer-icon.png';
 
   navigationExtras: NavigationExtras = {
-    queryParams: {'username': this.stream.publisher.stream},
+    queryParams: {'username': this.stream.publisher},
   };
 
   constructor(private router: Router) { }
@@ -30,6 +30,6 @@ export class SinglestreamComponent implements OnInit {
   }
 
   toStream() {
-    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream, this.navigationExtras);
+    this.router.navigateByUrl('/stream/' + this.stream.publisher, this.navigationExtras);
   }
 }
