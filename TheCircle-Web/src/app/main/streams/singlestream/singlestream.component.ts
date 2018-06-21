@@ -1,11 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Stream} from '../../../_models/stream.model';
 import {Observable} from 'rxjs';
-import {User} from "../../../_models/user.model";
-import {StreamService} from "../../../_services/stream.service";
-import {Router} from "@angular/router";
-import {NavigationExtras, Router} from '@angular/router';
-import {StreamService} from "../../../_services/stream.service";
+import {User} from '../../../_models/user.model';
+import {StreamService} from '../../../_services/stream.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-singlestream',
@@ -20,9 +18,9 @@ export class SinglestreamComponent implements OnInit {
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
 
-  navigationExtras: NavigationExtras = {
-    queryParams: {'username': this.stream.publisher.stream},
-  };
+  // navigationExtras: NavigationExtras = {
+  //   queryParams: {'username': this.stream.publisher.stream},
+  // };
 
   constructor(private router: Router, private streamService: StreamService) { }
 
