@@ -12,6 +12,7 @@ export class StreamService {
   private stream: Stream;
   private streamArray = [];
   private videoUrl = environment.videoDataApiUrl;
+  private streamer: string;
   private accountUrl = environment.accountApiUrl;
 
   constructor(private http: HttpClient) {
@@ -42,5 +43,13 @@ export class StreamService {
         return response;
       });
 
+  }
+
+  public setStreamer(streamer: string) {
+    this.streamer = streamer;
+  }
+
+  public getStreamer() {
+    return this.streamer;
   }
 }

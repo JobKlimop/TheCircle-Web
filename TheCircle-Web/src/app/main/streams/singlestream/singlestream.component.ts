@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Stream} from '../../../_models/stream.model';
 import {Observable} from 'rxjs';
-import {User} from "../../../_models/user.model";
-import {StreamService} from "../../../_services/stream.service";
-import {Router} from "@angular/router";
+import {User} from '../../../_models/user.model';
+import {StreamService} from '../../../_services/stream.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-singlestream',
@@ -11,14 +11,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./singlestream.component.css']
 })
 export class SinglestreamComponent implements OnInit {
-  @Input() stream: Stream;
+  @Input() stream: any;
   @Input() user: User;
   users: User;
   subscriberArray = [];
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
 
-  constructor(private streamService: StreamService, private router: Router) { }
+  // navigationExtras: NavigationExtras = {
+  //   queryParams: {'username': this.stream.publisher.stream},
+  // };
+
+  constructor(private router: Router, private streamService: StreamService) { }
 
   ngOnInit() {
     this.subscriberArray = [];
@@ -36,7 +40,7 @@ export class SinglestreamComponent implements OnInit {
   }
 
   toStream() {
-    // @ts-ignore
+    this.streamService.setStreamer(this.stream.publisher.stream);
     this.router.navigateByUrl('/stream/' + this.stream.publisher.stream);
   }
 }
