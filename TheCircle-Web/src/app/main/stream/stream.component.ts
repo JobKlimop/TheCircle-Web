@@ -12,18 +12,16 @@ import {StreamService} from "../../_services/stream.service";
 })
 export class StreamComponent implements OnInit {
   @Input() stream: Stream;
-  public streamerName: string;
+  public streamer: string;
   public username: string;
-  public quote: string;
+  public slogan: string;
   public avatar: string;
   public viewers: string;
+  public viewCount: number;
 
   constructor(private router: Router, private chatService: ChatService, private streamService: StreamService) {
     // Set some default user information.
-    this.username = "mika";
-    this.quote = "The best streamer on the circle.";
-    this.avatar = "https://puu.sh/AD8Jo/4e7870d676.png";
-    this.viewers = "0";
+    this.avatar = 'https://puu.sh/AD8Jo/4e7870d676.png';
    }
 
   ngOnInit() {
@@ -31,6 +29,14 @@ export class StreamComponent implements OnInit {
     .subscribe((newViewers) => {
       this.viewers = newViewers;
     });
-    this.streamerName = this.streamService.getStreamer();
+    this.streamer = this.streamService.getStreamer();
+
+    this.streamService.getStreamInfo(this.streamer)
+      .then((response: any) => {
+        this.username = response.userinfo.username;
+        this.slogan = response.userinfo.slogan;
+        this.viewCount = response.viewers;
+        console.log('VIEWCOUNT: ' + this.viewCount);
+      });
   }
 }

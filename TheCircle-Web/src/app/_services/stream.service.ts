@@ -14,6 +14,7 @@ export class StreamService {
   private videoUrl = environment.videoDataApiUrl;
   private streamer: string;
   private accountUrl = environment.accountApiUrl;
+  private countUrl = 'http://localhost:8000/api/streams/live/';
 
   constructor(private http: HttpClient) {
 
@@ -51,5 +52,15 @@ export class StreamService {
 
   public getStreamer() {
     return this.streamer;
+  }
+
+  getStreamInfo(streamer: string) {
+    return this.http.get(
+      this.countUrl + streamer,
+      {headers: this.headers})
+      .toPromise()
+      .then((response) => {
+        return response;
+      });
   }
 }
