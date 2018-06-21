@@ -18,7 +18,7 @@
 }
 
 .container {
-  background-color: #fffefec7;
+  background-color: #333333;
 }
 
 .userImage {
@@ -45,14 +45,14 @@
 
 .btn:hover{
   width: 100%;
-  color: rgb(231, 44, 45);
-  background-color: white;
+  color: rgb(254, 254, 254);
+  background-color: #ff5953;
   border: 1px solid rgb(231, 44, 45);
   font-weight: bold;
 }
 
 .dialogText {
-  color: black;
+  color: white;
   margin: 30px;
 }
 
