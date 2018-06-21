@@ -18,7 +18,7 @@ export class StreamComponent implements OnInit {
 
   constructor(private router: Router, private chatService: ChatService) {
     // Set some default user information.
-    this.username = "Transparent person";
+    this.username = "mika";
     this.quote = "The best streamer on the circle.";
     this.avatar = "https://puu.sh/AD8Jo/4e7870d676.png";
     this.viewers = "0";
