@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Stream} from '../../_models/stream.model';
+import {StreamService} from '../../_services/stream.service';
+import {User} from "../../_models/user.model";
 
 @Component({
   selector: 'app-streams',
@@ -7,51 +9,23 @@ import {Stream} from '../../_models/stream.model';
   styleUrls: ['./streams.component.css']
 })
 export class StreamsComponent implements OnInit {
-  streamerName: 'Streamer';
-  slogan: 'Shrek is love, Shrek is life, Giede is fgt';
+  streams: Stream[];
+  users: User[];
   address: '../../../assets/img/video.jpg';
 
-  streamArray: Stream[] = [
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    {
-      streamerName: 'Streamer',
-      slogan: 'Shrek is love, Shrek is life, Giede is fgt',
-      address: '../../../assets/img/video.jpg'
-    },
-    ];
-
-  constructor() { }
+  constructor(private streamService: StreamService) { }
 
   ngOnInit() {
+    this.streams = [];
+    console.log(this.streams);
+    this.streamService.getAllStreams()
+      .then((streams) => {
+        this.streams = streams;
+        console.log(streams);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
 }

@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 const crypto = require('crypto-js');
 const jsrsasign = require('jsrsasign');
 
+
 @Injectable()
 export class EncryptionService {
   privateKey: string;
@@ -17,7 +18,7 @@ export class EncryptionService {
   public sign(message) {
     var timestamp = Math.round((new Date()).getTime() / 1000) ;
 
-    const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
+    const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha256', 'prov': 'cryptojs'});
     md.updateString(message + timestamp);
     const hashValueHex = md.digest();
 
@@ -37,7 +38,7 @@ export class EncryptionService {
       return false;
     }
 
-    const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha1', 'prov': 'cryptojs'});
+    const md = new jsrsasign.KJUR.crypto.MessageDigest({'alg': 'sha256', 'prov': 'cryptojs'});
     md.updateString(message.content + message.timestamp);
     const hashValueHex = md.digest();
 

@@ -2,13 +2,11 @@
 .overlay {
   position: absolute;
   bottom: 0;
-  /*background: rgb(0, 0, 0);*/
   /*background: rgba(0, 0, 0, 0.5); !* Black see-through *!*/
-  /*color: #f1f1f1;*/
   width: 180px;
   transition: .5s ease;
   opacity:0;
-  color: black;
+  color: #e72c2d;
   font-size: 20px;
   padding: 20px;
   text-align: center;
@@ -20,7 +18,7 @@
 }
 
 .container {
-  background-color: #2e2e2e;
+  background-color: #fffefec7;
 }
 
 .userImage {
@@ -28,6 +26,7 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  border-radius: 50%;
 }
 
 .editImage {
@@ -39,22 +38,32 @@
 
 .btn {
   width: 100%;
-  border-radius: 0px;
-  background-color: #F57C37;
-  border-color: #F57C37;
+  color: white;
+  background-color: rgb(231, 44, 45);
+  border: 1px solid rgb(231, 44, 45);
 }
 
-.closeBtn {
-  background-color: lightgray;
-  border-color: lightgray;
+.btn:hover{
+  width: 100%;
+  color: rgb(231, 44, 45);
+  background-color: white;
+  border: 1px solid rgb(231, 44, 45);
+  font-weight: bold;
 }
 
 .dialogText {
   color: white;
   margin: 30px;
-
 }
 
-.infoDiv {
-  margin-bottom: 20px;
+b{
+  font-weight: bold;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+a {
+    outline: none;
 }
