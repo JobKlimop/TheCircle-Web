@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Stream} from '../_models/stream.model';
 import {environment} from '../../environments/environment';
+import {User} from '../_models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ export class StreamService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private stream: Stream;
   private streamArray = [];
-  private url = environment.videoDataApiUrl;
+  private videoUrl = environment.videoDataApiUrl;
   private streamer: string;
+  private accountUrl = environment.accountApiUrl;
 
   constructor(private http: HttpClient) {
 
@@ -19,7 +21,7 @@ export class StreamService {
 
   getAllStreams(): Promise<Stream[]> {
     return this.http.get(
-      this.url + '/streams',
+      this.videoUrl + '/streams',
       {headers: this.headers})
       .toPromise()
       .then((response: any) => {
@@ -30,6 +32,17 @@ export class StreamService {
         }
         return this.streamArray;
       });
+  }
+
+  getUser(username: string): Promise<any> {
+    return this.http.get(
+      this.accountUrl + '/user/' + username,
+      {headers: this.headers})
+      .toPromise()
+      .then((response) => {
+        return response;
+      });
+
   }
 
   public setStreamer(streamer: string) {
