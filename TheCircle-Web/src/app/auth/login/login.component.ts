@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     const userData = this.loginForm.value;
-    if (userData.username === '' || userData.password === '') {
+    if (userData.username === '' || userData.password === ' ') {
       this.toastr.warning('Please fill in your username & password.', 'Fields required');
     } else {
       this.authService.login(userData.username, userData.password)
