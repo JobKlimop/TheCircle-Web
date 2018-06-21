@@ -22,6 +22,11 @@ h1 {
   display: inline-block;
 }
 
+app-video {
+  width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 350px) and (max-width: 600px)  {
   img {
     height: 80px;

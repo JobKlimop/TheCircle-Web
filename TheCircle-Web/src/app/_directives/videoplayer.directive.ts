@@ -1,21 +1,21 @@
 import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
 import {environment} from '../../environments/environment';
 import flvjs from 'node_modules/flv.js';
-import {StreamService} from "../_services/stream.service";
+import {StreamService} from '../_services/stream.service';
 
 @Directive({
   selector: '[appVideoplayer]'
 })
 export class VideoplayerDirective {
-  private videUrl = environment.videoStreamApiUrl;
+  private videoUrl = environment.videoStreamApiUrl;
 
   private streamerName: string = this.streamService.getStreamer();
 
   constructor(private renderer: Renderer2, private el: ElementRef, private streamService: StreamService) {
-    this.renderer.setStyle(this.el.nativeElement, 'height', '100%');
-    this.renderer.setStyle(this.el.nativeElement, 'width', '100%');
+    this.renderer.setStyle(this.el.nativeElement, 'height', '360px');
+    this.renderer.setStyle(this.el.nativeElement, 'width', '640px');
     this.renderer.setAttribute(this.el.nativeElement, 'controls', null);
-    this.renderer.setAttribute(this.el.nativeElement, 'src', this.videUrl + '/' + this.streamerName +'.flv');
+    this.renderer.setAttribute(this.el.nativeElement, 'src', this.videoUrl + '/' + this.streamerName + '.flv');
     this.createPlayer();
   }
 
