@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { Chatmessage } from '../_models/chatmessage';
 import { EncryptionService } from './encryption.service';
 
-const host = "http://the-circle-chat2.herokuapp.com"
+const host = 'http://the-circle-chat2.herokuapp.com/';
 // const host =  "ws://145.49.24.24:3000"
 // const host =  "ws://145.49.52.76:3000"
 
@@ -24,14 +24,14 @@ export class ChatService {
     public messages = new Array();
     public viewers = new String;
 
-    constructor(AuthService: AuthService, private encryptionService: EncryptionService){
-
+    constructor(authService: AuthService, private encryptionService: EncryptionService){
+         
         socket = socket.connect(host, {
             transports: ['websocket'],
             rejectUnauthorized: false
         });
         this.addEventHandlers();
-        this.authservice = AuthService;
+        this.authservice = authService;
      }
 
 
