@@ -18,12 +18,6 @@ export class AccountDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.authService.user;
-
-    // If no avatar present, set default.
-    if (this.user.avatar == null)
-    {
-      this.user.avatar = '../../../assets/img/userImage.png';
-    }
   }
 
   onNoClick(): void {

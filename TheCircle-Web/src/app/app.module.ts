@@ -27,13 +27,13 @@ import { AuthGuard } from './_services/auth-guard.service';
 import { EncryptionService } from './_services/encryption.service';
 import { ChatService } from './_services/chat.service';
 import {StreamService} from './_services/stream.service';
-import { StreamerService } from './_services/streamer.service';
 import { DropdownDirective } from './_shared/dropdown.directive';
 import { AuthInterceptor } from './_interceptors/auth.interceptor';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { RouterModule } from '@angular/router';
+import { VideoplayerDirective } from './_directives/videoplayer.directive';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     StreamComponent,
     VideoComponent,
-    ChatComponent
+    ChatComponent,
+    VideoplayerDirective
   ],
   imports: [
     BrowserModule,
@@ -76,7 +77,6 @@ import { RouterModule } from '@angular/router';
     ChatService,
     EncryptionService,
     StreamService,
-    StreamerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

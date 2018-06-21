@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatService } from '../../_services/chat.service';
+import {Stream} from '../../_models/stream.model';
 
 
 @Component({
@@ -9,13 +10,14 @@ import { ChatService } from '../../_services/chat.service';
   styleUrls: ['./stream.component.css']
 })
 export class StreamComponent implements OnInit {
+  @Input() stream: Stream;
   public username: string;
   public quote: string;
   public viewers: string;
 
   constructor(private router: Router, private chatService: ChatService) {
     // Set some default user information.
-    this.username = "Transparent person";
+    this.username = "mika";
     this.quote = "The best streamer on the circle.";
     this.viewers = "0";
    }

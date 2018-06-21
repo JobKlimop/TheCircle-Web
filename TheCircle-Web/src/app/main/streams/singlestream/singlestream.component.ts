@@ -19,6 +19,8 @@ export class SinglestreamComponent implements OnInit {
 
   constructor(private streamService: StreamService) { }
 
+  constructor(private router: Router) { }
+
   ngOnInit() {
     this.subscriberArray = [];
     // @ts-ignore
@@ -32,5 +34,9 @@ export class SinglestreamComponent implements OnInit {
           this.users = user;
           console.log(this.users);
         });
+  }
+
+  toStream() {
+    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream, this.navigationExtras);
   }
 }

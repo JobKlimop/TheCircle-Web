@@ -26,7 +26,7 @@ export class StreamService {
       .then((response: any) => {
 
         this.streamArray = [];
-        for (let s in response.live){
+        for (let s in response.live) {
           this.streamArray.push(response.live[s]);
         }
         return this.streamArray;
