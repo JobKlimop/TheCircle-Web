@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { Chatmessage } from '../_models/chatmessage';
 import { EncryptionService } from './encryption.service';
 
-const host = "ws://the-circle-chat.herokuapp.com/"
+const host = "ws://the-circle-chat2.herokuapp.com/"
 // const host =  "ws://145.49.24.24:3000"
 // const host =  "ws://145.49.52.76:3000"
 
