@@ -1,11 +1,17 @@
-export class Stream {
-  public streamerName: string;
-  public slogan: string;
-  public address: string;
+import {subscriptionLogsToBeFn} from 'rxjs/internal/testing/TestScheduler';
 
-  constructor(streamerName: string, slogan: string, address: string) {
-    this.streamerName = streamerName;
+export class Stream {
+  public stream: string;
+  public slogan: string;
+  public ip: string;
+  public subscribers: number;
+  public publisher: string;
+
+  constructor(stream: string, slogan: string, ip: string, subscribers: number, publisher: string) {
+    this.stream = stream;
     this.slogan = slogan;
-    this.address = address;
+    this.ip = ip;
+    this.subscribers = subscribers;
+    this.publisher = publisher;
   }
 }

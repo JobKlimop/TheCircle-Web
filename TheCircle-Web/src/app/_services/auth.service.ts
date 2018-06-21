@@ -49,6 +49,8 @@ export class AuthService {
     delete this.publicKey;
     delete this.crt;
     delete this.token;
+
+    delete this.user;
   }
 
   setSession(token, certificate, privateKey, publicKey, username, slogan, email, avatar) {
@@ -59,6 +61,12 @@ export class AuthService {
 
     console.log(this.privateKey);
     console.log(this.crt);
+
+    // If no avatar present, set default.
+    if (avatar == null)
+    {
+      avatar = '../../../assets/img/userImage.png';
+    }
 
     this.user = new User(username, slogan, email, avatar);
   }

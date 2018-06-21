@@ -32,20 +32,20 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link link text-white dropdown-toggle display-4" data-toggle="dropdown-submenu" aria-expanded="false">
-            <span class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>
-            Account
+            <span class="mbr-iconfont mbr-iconfont-btn"><img src="{{authService.user.avatar}}" style="border-radius: 50%; height: 25px;"></span>
+            {{authService.user.username}}
           </a>
           <ul class="dropdown-menu">
             <li class="dropdown-item">
               <a class="nav-link link text-white display-4" (click)="openDialog()">
-                <span class="mbri-setting3 mbr-iconfont mbr-iconfont-btn"></span>
-                My Info
+                <span class="mbri-preview mbr-iconfont mbr-iconfont-btn"></span>
+                My info
               </a>
             </li>
             <li class="dropdown-item">
               <a class="nav-link link text-white display-4" href="/auth" (click)="logout()">
                 <span class="mbri-logout mbr-iconfont mbr-iconfont-btn"></span>
-                Logout
+                Log out
               </a>
             </li>
           </ul>

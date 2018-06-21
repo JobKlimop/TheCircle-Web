@@ -1,15 +1,15 @@
-import { Injectable, Output, EventEmitter } from "@angular/core";
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AuthService } from './auth.service';
 
 import { Chatmessage } from '../_models/chatmessage';
-import { EncryptionService } from "./encryption.service";
+import { EncryptionService } from './encryption.service';
 
 const host = "ws://the-circle-chat.herokuapp.com/"
 // const host =  "ws://145.49.24.24:3000"
 // const host =  "ws://145.49.52.76:3000"
 
 
-let socket = require("socket.io-client")
+let socket = require('socket.io-client');
 
 
 @Injectable()
@@ -29,7 +29,7 @@ export class ChatService {
         socket = socket.connect(host, {
             transports: ['websocket'],
             rejectUnauthorized: false
-        })
+        });
         this.addEventHandlers();
         this.authservice = AuthService;
      }
