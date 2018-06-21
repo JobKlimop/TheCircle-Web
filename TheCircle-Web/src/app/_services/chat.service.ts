@@ -6,6 +6,8 @@ import { EncryptionService } from "./encryption.service";
 
 const host = "ws://the-circle-chat.herokuapp.com/"
 // const host =  "ws://145.49.24.24:3000"
+// const host =  "ws://145.49.52.76:3000"
+
 
 let socket = require("socket.io-client")
 
@@ -47,7 +49,9 @@ export class ChatService {
         socket.on("history", (history) => {
             console.log(history.history)
             for(let m of history.history){
-                this.messages.push(m)
+                if(this.encryptionService.verify(m)){
+                    this.messages.push(m)
+                }
             }
             this.messagesChanged.emit(this.messages)
         })
