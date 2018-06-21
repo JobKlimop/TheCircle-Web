@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Stream} from '../../_models/stream.model';
 import {StreamService} from '../../_services/stream.service';
-import {User} from "../../_models/user.model";
+import {User} from '../../_models/user.model';
 
 @Component({
   selector: 'app-streams',

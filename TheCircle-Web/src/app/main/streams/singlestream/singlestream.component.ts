@@ -17,10 +17,7 @@ export class SinglestreamComponent implements OnInit {
   subscriberArray = [];
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
-
-  // navigationExtras: NavigationExtras = {
-  //   queryParams: {'username': this.stream.publisher.stream},
-  // };
+  subscriberCount: number;
 
   constructor(private router: Router, private streamService: StreamService) { }
 
@@ -37,6 +34,11 @@ export class SinglestreamComponent implements OnInit {
           this.users = user;
           console.log(this.users);
         });
+
+    this.streamService.getStreamInfo(this.stream.publisher.stream)
+      .then((response: any) => {
+        this.subscriberCount = response.viewers;
+      });
   }
 
   toStream() {
