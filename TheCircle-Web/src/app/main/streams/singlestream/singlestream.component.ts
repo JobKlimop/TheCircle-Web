@@ -3,6 +3,7 @@ import {Stream} from '../../../_models/stream.model';
 import {Observable} from 'rxjs';
 import {User} from "../../../_models/user.model";
 import {StreamService} from "../../../_services/stream.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-singlestream',
@@ -17,9 +18,7 @@ export class SinglestreamComponent implements OnInit {
   ip = '../../../../assets/img/video.jpg';
   viewerIcon = '../../../../assets/img/viewer-icon.png';
 
-  constructor(private streamService: StreamService) { }
-
-  constructor(private router: Router) { }
+  constructor(private streamService: StreamService, private router: Router) { }
 
   ngOnInit() {
     this.subscriberArray = [];
@@ -37,6 +36,7 @@ export class SinglestreamComponent implements OnInit {
   }
 
   toStream() {
-    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream, this.navigationExtras);
+    // @ts-ignore
+    this.router.navigateByUrl('/stream/' + this.stream.publisher.stream);
   }
 }

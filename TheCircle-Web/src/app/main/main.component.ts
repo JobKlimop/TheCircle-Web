@@ -16,8 +16,6 @@ export class MainComponent implements OnInit {
   public streamers: User[] = [];
   public viewers = 0;
 
-  constructor(private encryptionService: EncryptionService, private router: Router, private streamerService: StreamerService) { }
-
   constructor(private encryptionService: EncryptionService, private router: Router) { }
 
   ngOnInit() {

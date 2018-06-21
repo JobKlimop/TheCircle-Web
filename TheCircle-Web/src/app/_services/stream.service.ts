@@ -11,7 +11,7 @@ export class StreamService {
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
   private stream: Stream;
   private streamArray = [];
-  private videoUrl = environment.videoApiUrl;
+  private videoUrl = environment.videoDataApiUrl;
   private accountUrl = environment.accountApiUrl;
 
   constructor(private http: HttpClient) {
